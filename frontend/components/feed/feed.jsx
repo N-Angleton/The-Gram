@@ -1,4 +1,5 @@
 import React from "react"
+import { Redirect } from "react-router-dom"
 
 export class Feed extends React.Component{
 
@@ -17,7 +18,7 @@ export class Feed extends React.Component{
         let id = this.props.session.id
 
         if (id === null){
-            window.location.reload(false)
+            return <Redirect to="/" />
         } else {
             if (id) {
                 let user = this.props.entities.users[id]

@@ -10,8 +10,14 @@ export const App = () => {
     let loggedIn = Boolean(getState().session.id)
     return (
         <Switch>
-            <Route exact path="/signup"> { loggedIn ? <Redirect to="/" /> : <SignupContainer/> } </Route>
-            <Route exact path="/"> { loggedIn ? <FeedContainer/> : <LoginContainer/> } </Route>
+            <Route exact path="/signup" render={ () => {
+                if (Boolean(getState().session.id)) return (<FeedContainer/>)
+                else return (<SignupContainer/>)
+            }} />
+            <Route exact path="/" render={ () => {
+                if (Boolean(getState().session.id)) return (<FeedContainer/>)
+                else return (<LoginContainer/>)
+            }} />
             <Route path="/"> { <Redirect to="/" /> } </Route>
         </Switch>
     )

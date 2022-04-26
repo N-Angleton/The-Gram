@@ -1,4 +1,5 @@
 import React from "react"
+import { Redirect } from "react-router-dom"
 import { Link } from "react-router-dom"
 
 export class Login extends React.Component{
@@ -12,7 +13,7 @@ export class Login extends React.Component{
 
     handleSubmit(e){
         e.preventDefault()
-        this.props.processForm(this.state)
+        this.props.processForm({ username: this.state.username, password: this.state.password})
     }
 
     update(e){
@@ -20,8 +21,8 @@ export class Login extends React.Component{
     }
 
     render(){
-        if (this.props.session.id !== null){
-            window.location.reload(false)
+        if (this.props.session !== null){
+            return <Redirect to="/" />
         } else {
             return (
                 <div className="signinContainer">

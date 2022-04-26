@@ -1,5 +1,6 @@
 import React from "react"
 import { Link } from "react-router-dom"
+import { Redirect } from "react-router-dom"
 
 export class Signup extends React.Component{
 
@@ -21,7 +22,7 @@ export class Signup extends React.Component{
 
     render(){
         if (this.props.session.id !== null){
-            window.location.reload(false)
+            return <Redirect to="/" />
         } else {
             return (
                 <>

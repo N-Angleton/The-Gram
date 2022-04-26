@@ -3,9 +3,8 @@ import { login } from "../../actions/session_actions"
 import { Login } from "./login"
 
 const mapState = state => ({
-    entities: state.entities,
     errors: state.errors,
-    session: state.session
+    session: state.session.id
 })
 
 const mapDispatch = dispatch => ({
