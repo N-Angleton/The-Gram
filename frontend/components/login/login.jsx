@@ -47,7 +47,7 @@ export class Login extends React.Component{
             return (
                 <div className="signinContainer">
 
-                    <div>
+                    <div className="mainSigninDiv">
                         <form onSubmit={this.handleSubmit} className="signinForm">
                             <h1 className="signinTitle">Sign In</h1>
                             <label>Username
@@ -62,7 +62,6 @@ export class Login extends React.Component{
                         <button className="demoUserButton" onClick={() => this.loginDemo()}>Sign in as demo user</button>
                     </div>
                         
-
                     <div className="signupLinkContainer">
                         <Link to="/signup" className="createAccountLink">Create an account</Link>
                     </div>

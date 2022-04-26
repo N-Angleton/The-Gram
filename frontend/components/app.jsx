@@ -7,7 +7,6 @@ import { LoginContainer } from "./login/login_container";
 import { SignupContainer } from "./singup/signup_container";
 
 export const App = () => {
-    let loggedIn = Boolean(getState().session.id)
     return (
         <Switch>
             <Route exact path="/signup" render={ () => {

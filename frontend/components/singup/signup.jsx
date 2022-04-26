@@ -12,12 +12,43 @@ export class Signup extends React.Component{
     }
 
     handleSubmit(e){
-        e.preventDefault()
+        if (e) { e.preventDefault() }
         this.props.processForm(this.state)
     }
 
     update(e){
         this.setState( { [e.target.name]: e.target.value } )
+    }
+
+    async loginDemo(){
+        this.setState( {username: "", password: "", full_name: "", email: ""} )
+        let num = Math.floor( Math.random() * 10000 )
+        let demoUsername = `Demo_User${num}`
+        let demoPassword = `Demo_Password${num}`
+        let demoEmail = `Demo_Email${num}`
+        let fullName = `Demo_Name${num}`
+        for (let i = 0; i < demoUsername.length; i++) {
+            await this.timeout(150)
+            this.setState( {username: (this.state.username + demoUsername[i] )})
+        }
+        for (let i = 0; i < fullName.length; i++) {
+            await this.timeout(150)
+            this.setState( {full_name: (this.state.full_name + fullName[i] )})
+        }
+        for (let i = 0; i < demoPassword.length; i++) {
+            await this.timeout(150)
+            this.setState( {password: (this.state.password + demoPassword[i] )})
+        }
+        for (let i = 0; i < demoEmail.length; i++) {
+            await this.timeout(150)
+            this.setState( {email: (this.state.email + demoEmail[i] )})
+        }
+        await this.timeout(250)
+        this.handleSubmit()
+    }
+
+    timeout(ms){
+        return new Promise( resolve => setTimeout(resolve, ms));
     }
 
     render(){
@@ -29,19 +60,21 @@ export class Signup extends React.Component{
                     <h1>Sign Up</h1>
                     <form onSubmit={this.handleSubmit}>
                         <label>Username
-                            <input type="text" name="username" onChange={this.update} />
+                            <input type="text" value={this.state.username} name="username" onChange={this.update} />
                         </label>
                         <label>Name
-                            <input type="text" name="full_name" onChange={this.update} />
+                            <input type="text" value={this.state.full_name} name="full_name" onChange={this.update} />
                         </label>
                         <label>Password
-                            <input type="text" name="password" onChange={this.update} />
+                            <input type="text" value={this.state.password}  name="password" onChange={this.update} />
                         </label>
                         <label>Email
-                            <input type="email" name="email" onChange={this.update} />
+                            <input type="email" value={this.state.email} name="email" onChange={this.update} />
                         </label>
                         <button type="submit">Sign Up</button>
                     </form>
+                    <br/>
+                    <button className="demoUserSignupButton" onClick={() => this.loginDemo()}>Sign in as demo user</button>
                     <Link to="/">Already have an account</Link>
                 </>
             )

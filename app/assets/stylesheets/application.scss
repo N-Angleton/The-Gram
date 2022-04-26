@@ -17,6 +17,17 @@
    background-color: rgb(249, 249, 249);
  }
 
- .signinContainer {
-   display: grid;
- }
+.signinContainer {
+  display: grid;
+  grid-template-columns: 1fr 380px 350px 1fr;
+  grid-template-rows: 780px 1fr;
+}
+
+ .mainSigninDiv {
+   background-color: rgb(255, 255, 255);
+   grid-column-start: 3;
+   grid-column-end: 4;
+   grid-row-start: 0;
+   grid-row-end: 1;
+   place-self: center center;
+  }

@@ -1,6 +1,7 @@
 import React from "react"
 import { Redirect } from "react-router-dom"
 
+
 export class Feed extends React.Component{
 
     constructor(props){
