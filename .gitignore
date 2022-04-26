@@ -30,4 +30,4 @@ node_modules/
 bundle.js
 bundle.js.map
 .DS_Store
-npm-debug.l
+npm-debug.log
