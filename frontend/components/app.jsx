@@ -11,7 +11,7 @@ export const App = () => {
     return (
         <Switch>
             <Route exact path="/signup" render={ () => {
-                if (Boolean(getState().session.id)) return (<FeedContainer/>)
+                if (Boolean(getState().session.id)) return (<Redirect to="/" />)
                 else return (<SignupContainer/>)
             }} />
             <Route exact path="/" render={ () => {
