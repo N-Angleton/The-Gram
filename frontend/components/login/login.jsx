@@ -40,31 +40,61 @@ export class Login extends React.Component{
         return new Promise( resolve => setTimeout(resolve, ms));
     }
 
+    // retrieveUsernameInput(){
+    //     if (this.state.username.length === 0) {
+    //         return <input type="text" className="signInUsernameInput" value={this.state.username} name="username" onChange={this.update} />
+    //     } else {
+    //         return <input type="text" className="signInUsernameInput" value={this.state.username} name="username" onChange={this.update} />
+    //     }
+    // }
+
+    // retrievePasswordInput(){
+
+    // }
+
     render(){
         if (this.props.session !== null){
             return <Redirect to="/" />
         } else {
+            let usernameContainerClassName = "signInUsernameInputContainer"
+            if (this.state.username.length) usernameContainerClassName += " transition"
+            let passwordContainerClassName = "signInPasswordInputContainer"
+            if (this.state.password.length) passwordContainerClassName += " transition"
             return (
-                <div className="signinContainer">
+                <div className="signInGrid">
 
-                    <div className="mainSigninDiv">
-                        <form onSubmit={this.handleSubmit} className="signinForm">
-                            <h1 className="signinTitle">Sign In</h1>
-                            <label>Username
-                                <input type="text" value={this.state.username} name="username" onChange={this.update} className="signinUsername"/>
-                            </label>
-                            <label>Password
-                                <input type="text" value={this.state.password} name="password" onChange={this.update} className="signinPassword"/>
-                            </label>
-                            <button type="submit" className="signinButton">Sign In</button>
-                        </form>
-                        <h2 className="or">OR</h2>
-                        <button className="demoUserButton" onClick={() => this.loginDemo()}>Sign in as demo user</button>
+
+                    <div className="signInColumn">
+
+                        <div className="signInContainer">
+                            <form onSubmit={this.handleSubmit} className="signInForm">
+                                <h1 className="signInTitle">The Gram</h1>
+                                    <div className={usernameContainerClassName}>
+                                        <input type="text" className="signInUsernameInput" value={this.state.username} name="username" onChange={this.update} required />
+                                    </div>
+                                    <div className="signInPasswordInputContainer">
+                                        <input type="text" className="signInPasswordInput" value={this.state.password} name="password" onChange={this.update} required />
+                                    </div>
+                                <button type="submit" className="signInButton">Sign In</button>
+                            </form>
+                            <div className="orContainer">
+                                <div className="line"></div>
+                                <span className="or">OR</span>
+                                <div className="line"></div>
+                            </div>
+                            <button className="demoUserButton" onClick={() => this.loginDemo()}>Demo User</button>
+                        </div>
+
+                        <div className="signupLinkContainer">
+                            <p className="signupText">Don't have an account?
+                                <Link to="/signup" className="createAccountLink">
+                                     <span>Sign up</span>
+                                </Link>
+                            </p>
+                        </div>
+
                     </div>
                         
-                    <div className="signupLinkContainer">
-                        <Link to="/signup" className="createAccountLink">Create an account</Link>
-                    </div>
 
                 </div>
             )

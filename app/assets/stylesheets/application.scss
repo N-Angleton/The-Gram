@@ -1,4 +1,5 @@
 @import "bourbon";
+
 /*
  * This is a manifest file that'll be compiled into application.css, which will include all the files
  * listed below.
@@ -13,21 +14,139 @@
  *
  */
 
+
+
  * {
    background-color: rgb(249, 249, 249);
  }
 
-.signinContainer {
+.signInGrid {
   display: grid;
   grid-template-columns: 1fr 380px 350px 1fr;
-  grid-template-rows: 780px 1fr;
+  grid-template-rows: 64px 780px 1fr;
+  justify-content: center;
 }
 
- .mainSigninDiv {
-   background-color: rgb(255, 255, 255);
+ .signInColumn {
    grid-column-start: 3;
    grid-column-end: 4;
-   grid-row-start: 0;
-   grid-row-end: 1;
-   place-self: center center;
+   grid-row-start: 2;
+   grid-row-end: 3;
+   place-self: stretch stretch;
   }
+
+  .signInColumn * {
+    background-color: rgb(255, 255, 255);
+  }
+
+  .signInForm {
+    display: block;
+  }
+
+  .signInTitle {
+    display: block;
+    text-align: center;
+  }
+
+.signInUsernameInput {
+  display: block;
+  margin: 0 auto;
+  text-indent: 15px;
+}
+
+.signInUsernameInputContainer {
+  position: relative;
+  display: inline;
+}
+
+.signInUsernameInputContainer:before {
+  content: "username";
+  position: absolute;
+  top: 10px;
+  left: 56px;
+  font-size: 14px;
+  color: rgb(151, 151, 151);
+  z-index: 1;
+  transition: ease-out;
+  transition-duration: .2s;
+  transition-property: all;
+  pointer-events: none;
+}
+
+.signInUsernameInputContainer.transition:before {
+  top: 2px;
+  left: 40px;
+  font-size: 12px;
+}
+
+.signInPasswordInput {
+  display: block;
+  margin: 0 auto;
+}
+
+.signInColumn input {
+  border: 1px solid rgb(211, 211, 211);
+  background-color: rgb(249, 249, 249);
+  min-height: 30px;
+  min-width: 268px;
+}
+
+.signInColumn input:focus {
+  outline: none;
+  border: 2px solid rgb(151, 151, 151)
+}
+
+.signInColumn button {
+  display: block;
+  margin: 0 auto;
+  background-color: #0095f6;
+  color: rgb(255, 255, 255);
+  border: none;
+  border-radius: 4px;
+  min-height: 30px;
+  min-width: 276px;
+  margin-top: 12px;
+  margin-bottom: 12px;
+}
+
+.line {
+  display: inline-block;
+  height: 1px;
+  width: 105px;
+  background-color: rgb(219, 219, 219);
+}
+
+.or {
+  text-align: center;
+  color: rgb(142, 142, 142);
+  margin-left: 18px;
+  margin-right: 18px;
+}
+
+.orContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.demoUserButton {
+  display: block;
+  margin: 0 auto;
+}
+
+.signInContainer {
+  border: 1px solid rgb(211, 211, 211);
+  margin-bottom: 20px;
+}
+
+.signupLinkContainer {
+  border: 1px solid rgb(211, 211, 211);
+}
+
+.signupText {
+  text-align: center;
+}
+
+.createAccountLink {
+  margin-left: 8px;
+}
