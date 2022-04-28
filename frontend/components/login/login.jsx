@@ -11,6 +11,9 @@ export class Login extends React.Component{
         this.update = this.update.bind(this)
         this.hidden = true
         this.flipHidden = this.flipHidden.bind(this)
+        this.timer
+        this.phone = 0;
+        this.changePhone = this.changePhone.bind(this)
     }
 
     handleSubmit(e){
@@ -51,7 +54,17 @@ export class Login extends React.Component{
         this.hidden = !this.hidden
         this.forceUpdate()
     }
+    
+    componentDidMount(){
+        this.changePhone()
+    }
 
+    async changePhone(){
+        await this.timeout(3000)
+        this.phone = (this.phone + 1) % 4
+        this.forceUpdate()
+        this.changePhone()
+    }
 
     render(){
         if (this.props.session !== null){
@@ -65,6 +78,11 @@ export class Login extends React.Component{
             if (this.state.username.length && this.state.password.length > 5) {
                 disabled = false;
             }
+            let phoneURL;
+            if (this.phone === 0) {phoneURL = window.phoneURL_0}
+            if (this.phone === 1) {phoneURL = window.phoneURL_1}
+            if (this.phone === 2) {phoneURL = window.phoneURL_2}
+            if (this.phone === 3) {phoneURL = window.phoneURL_3}
             return (
                 <div className="signInGrid">
 
@@ -101,10 +119,14 @@ export class Login extends React.Component{
 
                         <p className="getTheApp">Get the app.</p>
                         <div className="downloadLinks">
-                            <img src="appleURL" alt="apple" />
-                            <img src="androidURL" alt="android" />
+                            <img className="appleLogo" src={window.appleURL} alt="apple" />
+                            <img className="androidLogo" src={window.androidURL} alt="android" />
                         </div>
 
+                    </div>
+
+                    <div className="imageColumn">
+                        <img className="phoneImg" src={phoneURL} alt="phone" />
                     </div>
                         
 

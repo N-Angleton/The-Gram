@@ -40,11 +40,12 @@ body {
 
 * {
   background-color: rgb(249, 249, 249);
+  border-radius: 4px;
 }
 
 .signInGrid {
   display: grid;
-  grid-template-columns: 1fr 380px 350px 1fr;
+  grid-template-columns: 1fr 497px 350px 1fr;
   grid-template-rows: 64px 780px 1fr;
   justify-content: center;
 }
@@ -243,4 +244,45 @@ button.showHideButton {
 
 .createAccountLink {
   margin-left: 8px;
+}
+
+.getTheApp {
+  text-align: center;
+}
+
+.downloadLinks {
+  text-align: center;
+}
+
+.downloadLinks img {
+  display: inline-block;
+  width: auto;
+  max-height: 40px;
+}
+
+.appleLogo {
+  margin-right: 8px;
+}
+
+.imageColumn {
+  grid-column-start: 2;
+  grid-column-end: 3;
+  grid-row-start: 2;
+  grid-row-end: 3;
+  place-self: stretch stretch;
+  background-image: image-url('phone_background.png');
+  background-size: 465px, auto;
+  background-repeat: no-repeat;
+  position: relative;
+}
+
+.phoneImg {
+  transition-property: all;
+  transition-duration: .7s;
+  height: auto;
+  width: 250px;
+  position: absolute;
+  top: 26px;
+  right: 88px;
+  background-color: rgba(0, 0, 0, 0);
 }
