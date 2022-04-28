@@ -73,13 +73,12 @@ export class Login extends React.Component{
 
                         <div className="signInContainer">
                             <form onSubmit={this.handleSubmit} className="signInForm">
-                                <h1 className="signInTitleWithImg">the <img src={window.logoURL} alt="gram" /></h1>
                                 <h1 className="signInTitle">the gram</h1>
                                     <div className={usernameContainerClassName}>
-                                        <input type="text" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" id="signInUsernameInput" className="signInUsernameInput" value={this.state.username} name="username" onChange={this.update} />
+                                        <input type="text" autoComplete="off" autoCorrect="off" autoCapitalize="off" spellCheck="false" id="signInUsernameInput" className="signInUsernameInput" value={this.state.username} name="username" onChange={this.update} />
                                     </div>
                                     <div className={passwordContainerClassName}>
-                                        <input type={this.hidden ? "password" : "text"} autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" id="signInPasswordInput" className="signInPasswordInput" value={this.state.password} name="password" onChange={this.update} />
+                                        <input type={this.hidden ? "password" : "text"} autoComplete="off" autoCorrect="off" autoCapitalize="off" spellCheck="false" id="signInPasswordInput" className="signInPasswordInput" value={this.state.password} name="password" onChange={this.update} />
                                         <button className="showHideButton" onClick={(e) => this.flipHidden(e)}>{this.hidden ? "Show" : "Hide"}</button>
                                     </div>
                                 <button type="submit" disabled={disabled} className="signInButton">Sign In</button>
@@ -98,6 +97,12 @@ export class Login extends React.Component{
                                      <span>Sign up</span>
                                 </Link>
                             </p>
+                        </div>
+
+                        <p className="getTheApp">Get the app.</p>
+                        <div className="downloadLinks">
+                            <img src="appleURL" alt="apple" />
+                            <img src="androidURL" alt="android" />
                         </div>
 
                     </div>

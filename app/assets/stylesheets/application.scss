@@ -19,13 +19,24 @@
   font-family: 'Parisienne';
   font-style: normal;
   font-weight: 400;
-  src: local(''),
-    url('../fonts/parisienne-v12-latin-regular.woff2') format('woff2'),
-    /* Chrome 26+, Opera 23+, Firefox 39+ */
-    url('../fonts/parisienne-v12-latin-regular.woff') format('woff');
-  /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+  src:
+    url('parisienne-v12-latin-regular.woff2'),
+    url('parisienne-v12-latin-regular.woff'),
 }
 
+/* roboto-regular - latin */
+@font-face {
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 400;
+  src:
+    url('roboto-v29-latin-regular.woff2') format('woff2'),
+    url('roboto-v29-latin-regular.woff') format('woff');
+}
+
+body {
+  font-family: 'Roboto';
+}
 
 * {
   background-color: rgb(249, 249, 249);
@@ -58,6 +69,7 @@
   display: block;
   text-align: center;
   font-family: 'Parisienne';
+  font-size: 50px;
 }
 
 .signInTitleWithImg {
@@ -69,6 +81,7 @@
   display: block;
   margin: 0 auto;
   text-indent: 15px;
+  margin-bottom: 8px;
 }
 
 .signInUsernameInputContainer {
@@ -151,6 +164,8 @@
   margin-top: 12px;
   margin-bottom: 12px;
   cursor: pointer;
+  transition-duration: .5s;
+  transition-property: all;
 }
 
 .signInButton:disabled {
