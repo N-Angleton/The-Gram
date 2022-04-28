@@ -14,11 +14,22 @@
  *
  */
 
+/* parisienne-regular - latin */
+@font-face {
+  font-family: 'Parisienne';
+  font-style: normal;
+  font-weight: 400;
+  src: local(''),
+    url('../fonts/parisienne-v12-latin-regular.woff2') format('woff2'),
+    /* Chrome 26+, Opera 23+, Firefox 39+ */
+    url('../fonts/parisienne-v12-latin-regular.woff') format('woff');
+  /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+}
 
 
- * {
-   background-color: rgb(249, 249, 249);
- }
+* {
+  background-color: rgb(249, 249, 249);
+}
 
 .signInGrid {
   display: grid;
@@ -27,26 +38,32 @@
   justify-content: center;
 }
 
- .signInColumn {
-   grid-column-start: 3;
-   grid-column-end: 4;
-   grid-row-start: 2;
-   grid-row-end: 3;
-   place-self: stretch stretch;
-  }
+.signInColumn {
+  grid-column-start: 3;
+  grid-column-end: 4;
+  grid-row-start: 2;
+  grid-row-end: 3;
+  place-self: stretch stretch;
+}
 
-  .signInColumn * {
-    background-color: rgb(255, 255, 255);
-  }
+.signInColumn * {
+  background-color: rgb(255, 255, 255);
+}
 
-  .signInForm {
-    display: block;
-  }
+.signInForm {
+  display: block;
+}
 
-  .signInTitle {
-    display: block;
-    text-align: center;
-  }
+.signInTitle {
+  display: block;
+  text-align: center;
+  font-family: 'Parisienne';
+}
+
+.signInTitleWithImg {
+  display: block;
+  text-align: center;
+}
 
 .signInUsernameInput {
   display: block;
@@ -62,7 +79,7 @@
 .signInUsernameInputContainer:before {
   content: "username";
   position: absolute;
-  top: 10px;
+  top: 15px;
   left: 56px;
   font-size: 14px;
   color: rgb(151, 151, 151);
@@ -82,12 +99,38 @@
 .signInPasswordInput {
   display: block;
   margin: 0 auto;
+  text-indent: 15px;
+}
+
+.signInPasswordInputContainer {
+  position: relative;
+  display: inline;
+}
+
+.signInPasswordInputContainer:before {
+  content: "password";
+  position: absolute;
+  top: 15px;
+  left: 56px;
+  font-size: 14px;
+  color: rgb(151, 151, 151);
+  z-index: 1;
+  transition: ease-out;
+  transition-duration: .2s;
+  transition-property: all;
+  pointer-events: none;
+}
+
+.signInPasswordInputContainer.transition:before {
+  top: 2px;
+  left: 40px;
+  font-size: 12px;
 }
 
 .signInColumn input {
   border: 1px solid rgb(211, 211, 211);
   background-color: rgb(249, 249, 249);
-  min-height: 30px;
+  min-height: 38px;
   min-width: 268px;
 }
 
@@ -96,7 +139,7 @@
   border: 2px solid rgb(151, 151, 151)
 }
 
-.signInColumn button {
+.signInButton {
   display: block;
   margin: 0 auto;
   background-color: #0095f6;
@@ -107,6 +150,45 @@
   min-width: 276px;
   margin-top: 12px;
   margin-bottom: 12px;
+  cursor: pointer;
+}
+
+.signInButton:disabled {
+  background-color: rgb(164, 215, 251);
+  cursor: default;
+}
+
+.demoUserButton {
+  display: block;
+  margin: 0 auto;
+}
+
+.demoUserButton {
+  display: block;
+  margin: 0 auto;
+  background-color: #0095f6;
+  color: rgb(255, 255, 255);
+  border: none;
+  border-radius: 4px;
+  min-height: 30px;
+  min-width: 276px;
+  margin-top: 12px;
+  margin-bottom: 12px;
+  cursor: pointer;
+}
+
+button.showHideButton {
+  position: absolute;
+  top: 1px;
+  left: 260px;
+  font-size: 14px;
+  color: rgb(38, 38, 38);
+  background-color: rgba(0, 0, 0, 0);
+  z-index: 1;
+  min-height: 38px;
+  min-width: 50px;
+  cursor: pointer;
+  border: none;
 }
 
 .line {
@@ -129,13 +211,10 @@
   align-items: center;
 }
 
-.demoUserButton {
-  display: block;
-  margin: 0 auto;
-}
 
 .signInContainer {
   border: 1px solid rgb(211, 211, 211);
+  padding-bottom: 12px;
   margin-bottom: 20px;
 }
 
