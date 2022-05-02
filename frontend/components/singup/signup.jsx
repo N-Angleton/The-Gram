@@ -1,6 +1,7 @@
 import React from "react"
 import { Link } from "react-router-dom"
 import { Redirect } from "react-router-dom"
+import { timeout } from "../../util/timeout"
 
 export class Signup extends React.Component{
 
@@ -28,27 +29,23 @@ export class Signup extends React.Component{
         let demoEmail = `Demo_Email${num}`
         let fullName = `Demo_Name${num}`
         for (let i = 0; i < demoUsername.length; i++) {
-            await this.timeout(150)
+            await timeout(150)
             this.setState( {username: (this.state.username + demoUsername[i] )})
         }
         for (let i = 0; i < fullName.length; i++) {
-            await this.timeout(150)
+            await timeout(150)
             this.setState( {full_name: (this.state.full_name + fullName[i] )})
         }
         for (let i = 0; i < demoPassword.length; i++) {
-            await this.timeout(150)
+            await timeout(150)
             this.setState( {password: (this.state.password + demoPassword[i] )})
         }
         for (let i = 0; i < demoEmail.length; i++) {
-            await this.timeout(150)
+            await timeout(150)
             this.setState( {email: (this.state.email + demoEmail[i] )})
         }
-        await this.timeout(250)
+        await timeout(250)
         this.handleSubmit()
-    }
-
-    timeout(ms){
-        return new Promise( resolve => setTimeout(resolve, ms));
     }
 
     render(){

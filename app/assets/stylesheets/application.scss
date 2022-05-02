@@ -46,8 +46,15 @@ body {
 .signInGrid {
   display: grid;
   grid-template-columns: 1fr 497px 350px 1fr;
-  grid-template-rows: 64px 780px 1fr;
+  grid-template-rows: 64px 650px 1fr;
   justify-content: center;
+}
+
+.footer {
+  grid-column-start: 1;
+  grid-column-end: 5;
+  grid-row-start: 3;
+  grid-row-end: 4;
 }
 
 .signInColumn {
@@ -277,12 +284,53 @@ button.showHideButton {
 }
 
 .phoneImg {
-  transition-property: all;
-  transition-duration: .7s;
+  transition-property: opacity;
+  transition-duration: 1s;
+  transition-timing-function: ease-in-out;
   height: auto;
   width: 250px;
   position: absolute;
   top: 26px;
   right: 88px;
   background-color: rgba(0, 0, 0, 0);
+  opacity: 0;
+}
+
+.shown {
+  opacity: 1;
+}
+
+.icon {
+  font-size: 45px;
+  color: rgb(164, 215, 251);
+  transition-timing-function: ease-in-out;
+  transition-property: color;
+  transition-duration: .2s;
+}
+
+.icon:hover {
+  color: #0095f6;
+}
+
+.footer {
+  text-align: center;
+  vertical-align: text-top;
+}
+
+.github {
+  margin-left: 70px;
+  margin-right: 15px;
+}
+
+.email {
+  margin-right: 15px;
+}
+
+a:visited {
+  text-decoration: none;
+}
+
+.createAccountLink {
+  color: #0095f6;
+  text-decoration: none;
 }
