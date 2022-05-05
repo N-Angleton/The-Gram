@@ -1,5 +1,5 @@
 import { connect } from "react-redux"
-import { logout } from "../../actions/session_actions"
+import { fetchUsersFeed } from "../../actions/post_actions"
 import { Feed } from "./feed"
 
 const mapState = state => ({
@@ -9,7 +9,7 @@ const mapState = state => ({
 })
 
 const mapDispatch = dispatch => ({
-    logout: () => dispatch(logout())
+    fetchUsersFeed: (user_id) => dispatch(fetchUsersFeed(user_id))
 })
 
 export const FeedContainer = connect(mapState, mapDispatch)(Feed)

@@ -1,37 +1,36 @@
-import * as utils from "../ajax_util/session_api_util"
-
-export const RECEIVE_CURRENT_USER = 'RECEIVE_CURRENT_USER'
-export const LOGOUT_CURRENT_USER = 'LOGOUT_CURRENT_USER'
-export const RECEIVE_SESSION_ERRORS = 'RECEIVE_SESSION_ERRORS'
-
-const receiveCurrentUser = user => ({
-    type: RECEIVE_CURRENT_USER,
-    user
-})
-
-const logoutCurrentUser = () => ({
-    type: LOGOUT_CURRENT_USER,
-})
-
-const receiveErrors = errors => ({
-    type: RECEIVE_SESSION_ERRORS,
-    errors
-})
+import * as session from "../ajax_util/session_api_util"
+import * as users from "../ajax_util/users_api_util"
+import * as act from "../consts_and_actions/consts_and_actions"
 
 export const signup = user => dispatch => (
-    utils.signup(user)
-    .then( user => dispatch(receiveCurrentUser(user)))
-    .fail( errors => dispatch(receiveErrors(errors.responseJSON)))
+    users.signup(user)
+    .then( result => dispatch(act.receiveUser(result)))
+    .fail( errors => dispatch(act.receiveSessionErrors(errors.responseJSON)))
 )
 
 export const login = user => dispatch => (
-    utils.login(user)
-    .then( user => dispatch(receiveCurrentUser(user)))
-    .fail( errors => dispatch(receiveErrors(errors.responseJSON)))
+    session.login(user)
+    .then( result => dispatch(act.receiveUser(result)))
+    .fail( errors => dispatch(act.receiveSessionErrors(errors.responseJSON)))
 )
 
 export const logout = () => dispatch => (
-    utils.logout()
-    .then( () => dispatch(logoutCurrentUser()))
-    .fail( errors => dispatch(receiveErrors(errors.responseJSON)))
+    session.logout()
+    .then( () => dispatch(act.logoutCurrentUser()))
+)
+
+export const deleteAccount = (user_id) => dispatch => (
+    users.deleteAccount(user_id)
+    .then( () => dispatch(act.logoutCurrentUser()))
+    .fail( errors => dispatch(act.receiveSessionErrors(errors.responseJSON)))
+)
+
+export const updateAccount = user => dispatch => (
+    users.updateAccount(user)
+    .then( result => dispatch(act.receiveUser(result)))
+)
+
+export const fetchProfile = id => dispatch => (
+    users.fetchProfile(id)
+    .then( result => dispatch(act.receiveData(result)))
 )

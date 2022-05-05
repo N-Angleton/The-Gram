@@ -12,6 +12,60 @@ class User < ApplicationRecord
         foreign_key: :poster_id,
         class_name: :Post
 
+    has_many :comments,
+        foreign_key: :users_id,
+        class_name: :Comment
+    
+    has_many :likes,
+        foreign_key: :users_id,
+        class_name: :Like
+
+    has_many :approved_follower_requests,
+    ->{(where(approved: true))},
+    foreign_key: :user_to_be_followed_id,
+    class_name: :FollowRequest
+
+    has_many :unapproved_follower_requests,
+    ->{(where(approved: false))},
+    foreign_key: :user_to_be_followed_id,
+    class_name: :FollowRequest
+
+    has_many :pending_follow_requests,
+    ->{(where(approved: false))},
+    foreign_key: :follower_id,
+    class_name: :FollowRequest
+
+    has_many :approved_follow_requests,
+    ->{(where(approved: true))},
+    foreign_key: :follower_id,
+    class_name: :FollowRequest
+
+
+    
+
+    has_many :approved_followers,
+    through: :approved_follower_requests,
+    source: :follower
+
+    has_many :unapproved_followers,
+    through: :unapproved_follower_requests,
+    source: :follower
+
+    has_many :pending_follows,
+    through: :pending_follow_requests,
+    source: :user_to_be_followed
+
+    has_many :approved_follows,
+    through: :approved_follow_requests,
+    source: :user_to_be_followed
+
+
+
+    has_many :followed_posts,
+    through: :approved_follows,
+    source: :posts
+
+
     def password=(password)
         @password = password
         self.password_digest = BCrypt::Password.create(password)

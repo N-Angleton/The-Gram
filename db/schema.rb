@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_05_03_203606) do
+ActiveRecord::Schema.define(version: 2022_05_04_073311) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -36,6 +36,40 @@ ActiveRecord::Schema.define(version: 2022_05_03_203606) do
     t.index ["key"], name: "index_active_storage_blobs_on_key", unique: true
   end
 
+  create_table "comments", force: :cascade do |t|
+    t.string "body", default: "", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.bigint "users_id"
+    t.bigint "posts_id"
+    t.index ["posts_id", "users_id"], name: "index_comments_on_posts_id_and_users_id", unique: true
+    t.index ["posts_id"], name: "index_comments_on_posts_id"
+    t.index ["users_id"], name: "index_comments_on_users_id"
+  end
+
+  create_table "follow_requests", force: :cascade do |t|
+    t.bigint "follower_id", null: false
+    t.bigint "user_to_be_followed_id", null: false
+    t.boolean "approved"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["follower_id", "approved"], name: "index_follow_requests_on_follower_id_and_approved"
+    t.index ["follower_id", "user_to_be_followed_id"], name: "index_follow_requests_on_follower_id_and_user_to_be_followed_id", unique: true
+    t.index ["follower_id"], name: "index_follow_requests_on_follower_id"
+    t.index ["user_to_be_followed_id", "approved"], name: "index_follow_requests_on_user_to_be_followed_id_and_approved"
+    t.index ["user_to_be_followed_id"], name: "index_follow_requests_on_user_to_be_followed_id"
+  end
+
+  create_table "likes", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.bigint "users_id"
+    t.bigint "posts_id"
+    t.index ["posts_id", "users_id"], name: "index_likes_on_posts_id_and_users_id", unique: true
+    t.index ["posts_id"], name: "index_likes_on_posts_id"
+    t.index ["users_id"], name: "index_likes_on_users_id"
+  end
+
   create_table "posts", force: :cascade do |t|
     t.integer "poster_id", null: false
     t.text "description", default: "", null: false
@@ -59,4 +93,10 @@ ActiveRecord::Schema.define(version: 2022_05_03_203606) do
   end
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "comments", "posts", column: "posts_id", on_delete: :cascade
+  add_foreign_key "comments", "users", column: "users_id", on_delete: :cascade
+  add_foreign_key "follow_requests", "users", column: "follower_id", on_delete: :cascade
+  add_foreign_key "follow_requests", "users", column: "user_to_be_followed_id", on_delete: :cascade
+  add_foreign_key "likes", "posts", column: "posts_id", on_delete: :cascade
+  add_foreign_key "likes", "users", column: "users_id", on_delete: :cascade
 end
