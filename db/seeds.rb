@@ -10,14 +10,14 @@ demo_user = User.create([{username: "Demo_User"}, {full_name: "Demo_User"}, {ema
 other_user = User.create([{username: "other_user"}, {full_name: "other_user"}, {email: "other_user@mail.com"}, {password: "other_user"}])
 another_user = User.create([{username: "another_user"}, {full_name: "another_user"}, {email: "another_user@mail.com"}, {password: "another_user"}])
 
-FollowRequest.create([{follower_id: demo_user.id}, {user_to_be_followed_id: other_user.id}, {approved: true}])
+FollowRequest.create([{follower_id: 1}, {user_to_be_followed_id: 2}, {approved: true}])
 
-FollowRequest.create([{follower_id: other_user.id}, {user_to_be_followed_id: demo_user.id}, {approved: true}])
+FollowRequest.create([{follower_id: 2}, {user_to_be_followed_id: 1}, {approved: true}])
 
-FollowRequest.create([{follower_id: another_user.id}, {user_to_be_followed_id: other_user.id}, {approved: true}])
+FollowRequest.create([{follower_id: 3}, {user_to_be_followed_id: 2}, {approved: true}])
 
-FollowRequest.create([{follower_id: other_user.id}, {user_to_be_followed_id: another_user.id}, {approved: true}])
+FollowRequest.create([{follower_id: 2}, {user_to_be_followed_id: 3}, {approved: true}])
 
-FollowRequest.create([{follower_id: another_user.id}, {user_to_be_followed_id: demo_user.id}, {approved: true}])
+FollowRequest.create([{follower_id: 3}, {user_to_be_followed_id: 1}, {approved: true}])
 
-FollowRequest.create([{follower_id: demo_user.id}, {user_to_be_followed_id: another_user.id}, {approved: true}])
+FollowRequest.create([{follower_id: 1}, {user_to_be_followed_id: 3}, {approved: true}])
