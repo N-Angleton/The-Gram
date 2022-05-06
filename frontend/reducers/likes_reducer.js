@@ -13,6 +13,7 @@ export const likesReducer = (state = {}, action) => {
         case ADD_OR_EDIT_LIKES:
             posts_id = Object.keys(action.likes)[0]
             id = Object.keys(action.likes[posts_id])[0]
+            if (!newState[posts_id]) {newState[posts_id] = {}}
             newState[posts_id][id] = action.likes[posts_id][id]
             return newState
         case DELETE_LIKE:

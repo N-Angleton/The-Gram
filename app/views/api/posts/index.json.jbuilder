@@ -35,9 +35,6 @@ json.set! :likes do
     end
 end
 
-json.followings({
-    approved_followers: [],
-    unapproved_followers: [],
-    approved_follows: [],
-    pending_follows: []
-})
+if @user
+    json.partial! 'api/follow_requests/follow', user: @user
+end

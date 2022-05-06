@@ -30,9 +30,9 @@ export const deleteLike = ({id, posts_id}) => ({
     id, posts_id
 })
 
-export const deleteFollowing = (follow_id) => ({
+export const deleteFollowing = ({user_id, other_user_id, follow_id}) => ({
     type: DELETE_FOLLOWING,
-    follow_id
+    user_id, other_user_id, follow_id
 })
 
 export const deletePost = (post_id) => ({
@@ -54,9 +54,9 @@ export const addOrEditLikes = ({likes}) => ({
     likes
 })
 
-export const addOrEditFollowings = ({followings}) => ({
+export const addOrEditFollowings = ({user_id, other_user_id, follow_id}) => ({
     type: ADD_OR_EDIT_FOLLOWINGS,
-    followings
+    user_id, other_user_id, follow_id
 })
 
 export const addOrEditPost = ({posts}) => ({

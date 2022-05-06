@@ -6,12 +6,12 @@ export const createFollow = (follow) => dispatch => (
     .then( result => dispatch(act.addOrEditFollowings(result)))
 )
 
-export const updateFollow = (follow) => dispatch => (
-    util.updateFollowRequest(follow)
+export const updateFollow = (follow_id) => dispatch => (
+    util.updateFollowRequest(follow_id)
     .then( result => dispatch(act.addOrEditFollowings(result)))
 )
 
-export const deleteFollow = (id) => dispatch => (
-    util.deleteFollowRequest(id)
-    .then( () => dispatch(act.deleteFollowing(id)))
+export const deleteFollow = (follow_id) => dispatch => (
+    util.deleteFollowRequest(follow_id)
+    .then( result => dispatch(act.deleteFollowing(result)))
 )

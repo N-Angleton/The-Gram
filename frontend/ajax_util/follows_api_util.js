@@ -6,10 +6,10 @@ export const createFollowRequest = followRequest => (
     })
 )
 
-export const updateFollowRequest = followRequest => (
+export const updateFollowRequest = id => (
     $.ajax({
         method: 'PATCH',
-        url: `/api/follow_requests/${followRequest.id}`,
+        url: `/api/follow_requests/${id}`,
     })
 )
 

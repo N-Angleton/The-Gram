@@ -3,7 +3,7 @@ import _ from "lodash";
 
 export const commmentsReducer = (state = {}, action) => {
     Object.freeze(state)
-    let newState = ({}, state)
+    let newState = _.merge({}, state)
     let id
     let posts_id
     switch (action.type) {
@@ -13,7 +13,8 @@ export const commmentsReducer = (state = {}, action) => {
         case ADD_OR_EDIT_COMMENTS:
             posts_id = Object.keys(action.comments)[0]
             id = Object.keys(action.comments[posts_id])[0]
-            newState[posts_id][id] = action.comments.posts_id.id
+            if (!newState[posts_id]) {newState[posts_id] = {}}
+            newState[posts_id][id] = action.comments[posts_id][id]
             return newState
         case DELETE_COMMENT:
             delete newState[action.posts_id][action.id]

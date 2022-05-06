@@ -36,3 +36,7 @@ json.set! :likes do
 end
 
 json.partial! 'api/follow_requests/follow', user: @user
+
+if @c_user
+    json.partial! 'api/follow_requests/follow', user: @c_user
+end

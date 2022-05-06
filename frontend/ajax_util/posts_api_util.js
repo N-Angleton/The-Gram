@@ -25,7 +25,7 @@ export const createPost = FormData => (
 export const updatePost = post => (
     $.ajax({
         method: 'PATCH',
-        url: `/api/post/${post.id}`,
+        url: `/api/posts/${post.id}`,
         data: {post}
     })
 )
@@ -33,6 +33,6 @@ export const updatePost = post => (
 export const deletePost = id => (
     $.ajax({
         method: 'DELETE',
-        url: `/api/post/${id}`,
+        url: `/api/posts/${id}`,
     })
 )

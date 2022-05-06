@@ -2,12 +2,12 @@ class Api::PostsController < ApplicationController
 
     def index
         if params[:user_id]
-            @user = User.includes(:approved_followers, :unapproved_followers, :pending_follows, :approved_follows, followed_posts: {comments: :commenter, likes: :liker}).find(params[:user_id])
+            @user = User.includes(:approved_follower_requests, :unapproved_follower_requests, :pending_follow_requests, :approved_follow_requests, posts: {comments: :commenter, likes: :liker}, followed_posts: {comments: :commenter, likes: :liker}).find(current_user.id)
         end
         if @user
             render '/api/posts/feed'
         else
-            @user = current_user
+            @user = User.includes(:approved_follower_requests, :unapproved_follower_requests, :pending_follow_requests, :approved_follow_requests).find(current_user.id)
             @posts = Post.includes(comments: :commenter, likes: :liker).all
             render 'api/posts/index'
         end
@@ -26,7 +26,7 @@ class Api::PostsController < ApplicationController
     def update
         @post = Post.find(params[:id])
 
-        if @post.update
+        if @post.update({description: params[:post][:description]})
             @posts = [@post]
             render '/api/posts/index'
         else

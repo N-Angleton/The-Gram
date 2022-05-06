@@ -9,7 +9,7 @@ export class CreatePostForm extends React.Component{
         this.handleFile = this.handleFile.bind(this)
     }
 
-    createPost(e){
+    async createPost(e){
         e.preventDefault()
         const formData = new FormData()
         formData.append('post[description]', this.state.description)

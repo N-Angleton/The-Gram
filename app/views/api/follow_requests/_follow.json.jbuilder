@@ -3,22 +3,28 @@ u_followers = []
 a_follows = []
 p_follows = []
 
-user.approved_followers.each do |follower|
-    a_followers.push(follower.id)
+user.approved_follower_requests.each do |follow_request|
+    key = follow_request.follower_id
+    a_followers.push(Hash[key, follow_request.id])
 end
-user.unapproved_followers.each do |follower|
-    u_followers.push(follower.id)
+user.unapproved_follower_requests.each do |follow_request|
+    key = follow_request.follower_id
+    u_followers.push(Hash[key, follow_request.id])
 end
-user.approved_follows.each do |follower|
-    a_follows.push(follower.id)
+user.approved_follow_requests.each do |follow_request|
+    key = follow_request.user_to_be_followed_id
+    a_follows.push(Hash[key, follow_request.id])
 end
-user.pending_follows.each do |follower|
-    p_follows.push(follower.id)
+user.pending_follow_requests.each do |follow_request|
+    key = follow_request.user_to_be_followed_id
+    p_follows.push(Hash[key, follow_request.id])
 end
 
 json.set! :followings do
-    json.approved_followers a_followers
-    json.unapproved_followers u_followers
-    json.approved_follows a_follows
-    json.pending_follows p_follows
+    json.set! user.id do
+        json.approved_followers a_followers
+        json.unapproved_followers u_followers
+        json.approved_follows a_follows
+        json.pending_follows p_follows
+    end
 end

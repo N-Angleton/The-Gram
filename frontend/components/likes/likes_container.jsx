@@ -1,6 +1,6 @@
 import { connect } from "react-redux"
 import { Likes } from "./likes"
-import { createLike,deleteLike } from "../../actions/like_actions"
+import { createLike, deleteLike } from "../../actions/like_actions"
 
 const mapState = (state, ownProps) => {
     const likeObj = (state.entities.likes[ownProps.post_id])

@@ -1,6 +1,6 @@
 import { connect } from "react-redux"
-import { addOrEditComments, addOrEditLikes, addOrEditPost, addOrEditFollowings, deleteComment, deleteLike, deletePost, deleteFollowing } from "../../consts_and_actions/consts_and_actions"
 import { Post } from "./post"
+import { updatePost, deletePost } from "../../actions/post_actions"
 
 const mapState = (state, ownProps) => {
     return ({
@@ -11,14 +11,8 @@ const mapState = (state, ownProps) => {
 }
 
 const mapDispatch = dispatch => ({
-    addOrEditLikes: like => dispatch(addOrEditLikes(like)),
-    addOrEditComments: comment => dispatch(addOrEditComments(comment)),
-    addOrEditPost: post => dispatch(addOrEditPost(post)),
-    addOrEditFollowings: following => dispatch(addOrEditFollowings(following)),
-    deleteLike: like_id => dispatch(deleteLike(like_id)),
-    deleteComment: comment_id => dispatch(deleteComment(comment_id)),
-    deletePost: post_id => dispatch(deletePost(post_id)),
-    deleteFollowing: following_id => dispatch(deleteFollowing(following_id)),
+    updatePost: post => dispatch(updatePost(post)),
+    deletePost: post_id => dispatch(deletePost(post_id))
 })
 
 export const PostContainer = connect(mapState, mapDispatch)(Post)
