@@ -11,14 +11,12 @@ export const likesReducer = (state = {}, action) => {
             if (!action.likes){return state}
             return action.likes
         case ADD_OR_EDIT_LIKES:
-            id = Object.values(action.likes).first.id
-            posts_id = Object.values(action.likes).first.posts_id
-            newState[posts_id][id] = action.likes.posts_id.id
+            posts_id = Object.keys(action.likes)[0]
+            id = Object.keys(action.likes[posts_id])[0]
+            newState[posts_id][id] = action.likes[posts_id][id]
             return newState
         case DELETE_LIKE:
-            id = Object.values(action.likes).first.id
-            posts_id = Object.values(action.likes).first.posts_id
-            delete newState[posts_id][id]
+            delete newState[action.posts_id][action.id]
             return newState
         case LOGOUT_CURRENT_USER:
                 return {}

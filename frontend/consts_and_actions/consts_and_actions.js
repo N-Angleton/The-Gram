@@ -20,14 +20,14 @@ export const RECEIVE_POST = 'RECEIVE_POST'
 
 
 
-export const deleteComment = (comment_id) => ({
+export const deleteComment = ({id, posts_id}) => ({
     type: DELETE_COMMENT,
-    comment_id
+    id, posts_id
 })
 
-export const deleteLike = (like_id) => ({
+export const deleteLike = ({id, posts_id}) => ({
     type: DELETE_LIKE,
-    like_id
+    id, posts_id
 })
 
 export const deleteFollowing = (follow_id) => ({

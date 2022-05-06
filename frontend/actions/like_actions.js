@@ -8,5 +8,5 @@ export const createLike = (like) => dispatch => (
 
 export const deleteLike = (id) => dispatch => (
     util.deleteLike(id)
-    .then( () => dispatch(act.deleteLike(id)))
+    .then( (result) => dispatch(act.deleteLike(result)))
 )

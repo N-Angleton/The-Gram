@@ -12,10 +12,12 @@ class Api::LikesController < ApplicationController
 
     def destroy
         @like = Like.find(params[:id])
+        id = params[:id]
+        posts_id = @like.posts_id
         if @like.destroy
-            render json: ['Deleted']
+            render json: {id: id, posts_id: posts_id}
         else
-            render json: @like.errors.full_messages, status 404
+            render json: @like.errors.full_messages, status: 404
         end
     end
 

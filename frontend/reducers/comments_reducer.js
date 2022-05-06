@@ -11,14 +11,12 @@ export const commmentsReducer = (state = {}, action) => {
             if (!action.comments){return state}
             return action.comments
         case ADD_OR_EDIT_COMMENTS:
-            id = Object.values(action.comments).first.id
-            posts_id = Object.values(action.comments).first.posts_id
+            posts_id = Object.keys(action.comments)[0]
+            id = Object.keys(action.comments[posts_id])[0]
             newState[posts_id][id] = action.comments.posts_id.id
             return newState
         case DELETE_COMMENT:
-            id = Object.values(action.comments).first.id
-            posts_id = Object.values(action.comments).first.posts_id
-            delete newState[posts_id][id]
+            delete newState[action.posts_id][action.id]
             return newState
         case LOGOUT_CURRENT_USER:
             return {}

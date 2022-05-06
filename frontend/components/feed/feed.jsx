@@ -1,4 +1,5 @@
 import React from "react";
+import { PostContainer } from "../post/post_container";
 
 export class Feed extends React.Component{
 
@@ -13,12 +14,7 @@ export class Feed extends React.Component{
     render(){
         return (
             <ul className="post_list">
-                { (this.props.entities.posts) ? Object.values(this.props.entities.posts).map( (post) =>
-                    <li key={`post_${post.id}`}>
-                        <h1>{post.description}</h1>
-                        <img src={post.photoUrl} alt="post" />
-                    </li>
-                ) : null }
+                { (this.props.posts) ? Object.values(this.props.posts).map( (post) => <PostContainer key={`post_${post.id}`} post={post} /> ) : null }
             </ul>
         )
     }

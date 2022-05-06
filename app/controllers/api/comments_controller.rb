@@ -22,8 +22,10 @@ class Api::CommentsController < ApplicationController
 
     def destroy
         @comment = Comment.find(params[:id])
+        id = params[:id]
+        posts_id = @comment.posts_id
         if @comment.destroy
-            render json: ['Deleted']
+            render json: {id: id, posts_id: posts_id}
         else
             render json: @comment.errors.full_messages, status 404
         end

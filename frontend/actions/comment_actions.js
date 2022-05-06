@@ -13,5 +13,5 @@ export const updateComment = (comment) => dispatch => (
 
 export const deleteComment = (id) => dispatch => (
     util.deleteComment(id)
-    .then( () => dispatch(act.deleteComment(id)))
+    .then( (result) => dispatch(act.deleteComment(result)))
 )
