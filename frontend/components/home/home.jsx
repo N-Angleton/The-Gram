@@ -12,12 +12,14 @@ export class Home extends React.Component{
 
     render(){
         return (
-            <main>
+            <>
                 <HeaderContainer />
-                <FeedContainer />
+                <main>
+                    <FeedContainer />
+                </main>
                 <CreatePostContainer />
                 <LogoutButtonContainer />
-            </main>
+            </>
         )
     }
 

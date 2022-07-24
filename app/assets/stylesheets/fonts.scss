@@ -1,0 +1,28 @@
+/* parisienne-regular - latin */
+@font-face {
+  font-family: 'Parisienne';
+  font-style: normal;
+  font-weight: 400;
+  src:
+    url('parisienne-v12-latin-regular.woff2'),
+    url('parisienne-v12-latin-regular.woff'),
+}
+  
+/* roboto-regular - latin */
+@font-face {
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 400;
+  src:
+    url('roboto-v29-latin-regular.woff2') format('woff2'),
+    url('roboto-v29-latin-regular.woff') format('woff');
+}
+
+body {
+  font-family: 'Roboto';
+  background-color: $gray-bg;
+}
+  
+* {
+  border-radius: 4px;
+}

@@ -14,3 +14,6 @@ export const App = () => {
         </Switch>
     )
 }
+
+{/* <ProtectedRoute exact path="/users" component={} />
+<ProtectedRoute path="/user/" component={} /> */}

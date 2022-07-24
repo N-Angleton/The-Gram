@@ -1,0 +1,292 @@
+.signInGrid {
+    display: grid;
+    grid-template-columns: 1fr 497px 350px 1fr;
+    grid-template-rows: 64px 650px 1fr;
+    justify-content: center;
+}
+  
+.footer {
+    grid-column-start: 1;
+    grid-column-end: 5;
+    grid-row-start: 3;
+    grid-row-end: 4;
+}
+  
+.signInColumn {
+    grid-column-start: 3;
+    grid-column-end: 4;
+    grid-row-start: 2;
+    grid-row-end: 3;
+    place-self: stretch stretch;
+}
+  
+.signInForm {
+    display: block;
+}
+  
+.signInTitle {
+    display: block;
+    text-align: center;
+    font-family: 'Parisienne';
+    font-size: 50px;
+}
+  
+.signInTitleWithImg {
+    display: block;
+    text-align: center;
+}
+  
+.signInUsernameInput {
+    display: block;
+    margin: 0 auto;
+    text-indent: 15px;
+    margin-bottom: 8px;
+    position: relative;
+}
+  
+.signInUsernameInputContainer {
+    position: relative;
+    width: 100%;
+    font-size: 14px;
+    display: flexbox;
+}
+  
+.signInUsernameInputContainer:before {
+    content: "username";
+    position: absolute;
+    top: 13px;
+    left: 58px;
+    font-size: 14px;
+    color: $gray-font;
+    z-index: 1;
+    transition: ease-out;
+    transition-duration: .2s;
+    transition-property: all;
+    pointer-events: none;
+}
+  
+.signInPasswordInput {
+    display: block;
+    margin: 0 auto;
+    text-indent: 15px;
+    position: relative;
+}
+  
+.signInPasswordInputContainer {
+    position: relative;
+    width: 100%;
+    display: flexbox;
+}
+  
+.signInPasswordInputContainer:before {
+    content: "password";
+    position: absolute;
+    top: 13px;
+    left: 58px;
+    font-size: 14px;
+    color: $gray-font;
+    z-index: 1;
+    transition: ease-out;
+    transition-duration: .2s;
+    transition-property: all;
+    pointer-events: none;
+}
+  
+.signInPasswordInputContainer.transition:before,
+.signInUsernameInputContainer.transition:before {
+    top: 4px;
+    left: 44px;
+    font-size: 10px;
+}
+  
+.signInColumn input {
+    box-sizing: border-box;
+    border: 1px solid $gray-border;
+    background-color: $gray-bg;
+    min-height: 42px;
+    min-width: 268px;
+}
+  
+.signInColumn input:focus {
+    outline: none;
+    border: 2px solid rgb(151, 151, 151);
+}
+  
+.signInButton {
+    display: block;
+    margin: 0 auto;
+    background-color: $dark-blue;
+    color: $white;
+    border: none;
+    border-radius: 4px;
+    min-height: 30px;
+    min-width: 276px;
+    margin-top: 12px;
+    margin-bottom: 12px;
+    cursor: pointer;
+    transition-duration: .5s;
+    transition-property: all;
+}
+  
+.signInButton:disabled {
+    background-color: $light-blue;
+    cursor: default;
+}
+  
+.demoUserButton {
+    display: block;
+    margin: 0 auto;
+}
+  
+.demoUserButton {
+    display: block;
+    margin: 0 auto;
+    background-color: $dark-blue;
+    color: rgb(255, 255, 255);
+    border: none;
+    border-radius: 4px;
+    min-height: 30px;
+    min-width: 276px;
+    margin-top: 12px;
+    margin-bottom: 12px;
+    cursor: pointer;
+}
+  
+button.showHideButton {
+    position: absolute;
+    top: 0px;
+    right: 55px;
+    font-size: 14px;
+    font-weight: 500;
+    color: $black;
+    background-color: rgba(0, 0, 0, 0);
+    z-index: 1;
+    min-height: 38px;
+    min-width: 50px;
+    text-align: center;
+    cursor: pointer;
+    border: none;
+  }
+  
+.line {
+    display: inline-block;
+    height: 1px;
+    width: 105px;
+    background-color: $gray-border;
+}
+  
+.or {
+    text-align: center;
+    color: $gray-font;
+    margin-left: 18px;
+    margin-right: 18px;
+}
+  
+.orContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+  
+  
+.signInContainer {
+    border: 1px solid $gray-border;
+    padding-bottom: 12px;
+    margin-bottom: 20px;
+    background-color: $white;
+}
+  
+.signupLinkContainer {
+    border: 1px solid $gray-border;
+    background-color: $white;
+}
+  
+.signupText {
+    text-align: center;
+}
+  
+.createAccountLink {
+    margin-left: 8px;
+}
+  
+.getTheApp {
+    text-align: center;
+}
+  
+.downloadLinks {
+    text-align: center;
+}
+  
+.downloadLinks img {
+    display: inline-block;
+    width: auto;
+    max-height: 40px;
+}
+  
+.appleLogo {
+    margin-right: 8px;
+}
+  
+.imageColumn {
+    grid-column-start: 2;
+    grid-column-end: 3;
+    grid-row-start: 2;
+    grid-row-end: 3;
+    place-self: stretch stretch;
+    background-image: image-url('phone_background.png');
+    background-size: 465px, auto;
+    background-repeat: no-repeat;
+    position: relative;
+}
+  
+.phoneImg {
+    transition-property: opacity;
+    transition-duration: 1s;
+    transition-timing-function: ease-in-out;
+    height: auto;
+    width: 250px;
+    position: absolute;
+    top: 26px;
+    right: 88px;
+    background-color: rgba(0, 0, 0, 0);
+    opacity: 0;
+}
+  
+.shown {
+    opacity: 1;
+}
+  
+.icon {
+    font-size: 45px;
+    color: $light-blue;
+    transition-timing-function: ease-in-out;
+    transition-property: color;
+    transition-duration: .2s;
+}
+  
+.icon:hover {
+    color: $dark-blue;
+}
+  
+.footer {
+    text-align: center;
+    vertical-align: text-top;
+}
+  
+.github {
+    margin-left: 70px;
+    margin-right: 15px;
+}
+  
+.email {
+    margin-right: 15px;
+}
+  
+a:visited {
+    text-decoration: none;
+}
+  
+.createAccountLink {
+    color: $dark-blue;
+    text-decoration: none;
+}

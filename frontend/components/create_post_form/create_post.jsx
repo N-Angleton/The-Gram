@@ -15,7 +15,9 @@ export class CreatePostForm extends React.Component{
         formData.append('post[description]', this.state.description)
         formData.append('post[poster_id]', this.state.poster_id)
         formData.append('post[photo]', this.state.photoFile)
-        this.props.createPost(formData)
+        this.props.createPost(formData).then(this.setState( {description: "", photoFile: null, photoUrl: null}))
+        const upload = document.getElementById(postFile)
+        upload.value = null;
     }
 
     update(e){
@@ -39,7 +41,7 @@ export class CreatePostForm extends React.Component{
                 {preview}
                 <form onSubmit={this.createPost}>
                     <input type="text" name="description" value={this.state.description} onChange={this.update} />
-                    <input type="file" onChange={this.handleFile} />
+                    <input type="file" id="postFile" onChange={this.handleFile} />
                     <button>Create</button>
                 </form>
             </div>
