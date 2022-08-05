@@ -1,0 +1,70 @@
+.home {
+  display: grid;
+  grid-template-columns: 1fr 470px 32px 319px 1fr;
+  grid-template-rows: 60px 1fr;
+
+  .header {
+    grid-column-start: 1;
+    grid-column-end: 6;
+    grid-row-start: 1;
+    grid-row-end: 2;
+  }
+
+  .feed {
+    grid-column-start: 2;
+    grid-column-end: 3;
+    grid-row-start: 2;
+    grid-row-end: 3;
+  }
+
+  .sidebar {
+    grid-column-start: 4;
+    grid-column-end: 5;
+    grid-row-start: 2;
+    grid-row-end: 3;
+  }
+}
+
+.post_img, .previewImg {
+  width: 470px;
+  max-height: 588px;
+  object-fit: contain;
+}
+
+.logo {
+  font-family: "Parisienne";
+  font-size: 50px;
+  color: $black;
+  padding-left: 100px;
+  transform: translateY(-45px);
+  display: inline-block;
+}
+
+.header {
+  border-bottom: 1px solid $gray-border;
+  display: flexbox;
+}
+
+.headerIcons {
+  float: right;
+}
+
+.profilePhoto {
+  height: 25px;
+  width: 25px;
+  border: 2px solid black;
+  border-radius: 50%;
+  padding-top: 0;
+  padding-bottom: 0;
+  margin-left: 20px;
+  margin-right: 100px;
+}
+
+.icon {
+  font-size: 25px;
+  color: $black;
+  padding-top: 0;
+  padding-bottom: 0;
+  padding-left: 20px;
+  padding-right: 20px;
+}

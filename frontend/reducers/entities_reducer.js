@@ -6,9 +6,9 @@ import { commmentsReducer } from "./comments_reducer";
 import { likesReducer } from "./likes_reducer";
 
 export const entitiesReducer = combineReducers({
-    users: usersReducer,
-    posts: postsReducer,
-    follows: followingsReducer,
-    comments: commmentsReducer,
-    likes: likesReducer
-})
+  users: usersReducer,
+  posts: postsReducer,
+  follows: followingsReducer,
+  comments: commmentsReducer,
+  likes: likesReducer,
+});

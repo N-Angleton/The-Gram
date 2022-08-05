@@ -2,7 +2,9 @@ class Api::PostsController < ApplicationController
 
     def index
         if params[:user_id]
+            @c_user = User.find(current_user.id)
             @user = User.includes(:approved_follower_requests, :unapproved_follower_requests, :pending_follow_requests, :approved_follow_requests, posts: {comments: :commenter, likes: :liker}, followed_posts: {comments: :commenter, likes: :liker}).find(current_user.id)
+            @unfollowed_users = User.unfollowed_users(@c_user)
         end
         if @user
             render '/api/posts/feed'

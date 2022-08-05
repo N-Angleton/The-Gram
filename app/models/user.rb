@@ -1,8 +1,10 @@
+include ActionView::Helpers::AssetUrlHelper
+
 class User < ApplicationRecord
 
     after_initialize :ensure_session_token
 
-    attr_reader :password
+    attr_reader :password, :photo_url
 
     validates :username, :full_name, :password_digest, :session_token, presence: true
     validates :username, :full_name, :session_token, uniqueness: true
@@ -19,6 +21,8 @@ class User < ApplicationRecord
     has_many :likes,
         foreign_key: :users_id,
         class_name: :Like
+
+    has_one_attached :photo
 
     has_many :approved_follower_requests,
     ->{(where(approved: true))},
@@ -41,7 +45,6 @@ class User < ApplicationRecord
     class_name: :FollowRequest
 
 
-    
 
     has_many :approved_followers,
     through: :approved_follower_requests,
@@ -65,6 +68,11 @@ class User < ApplicationRecord
     through: :approved_follows,
     source: :posts
 
+    scope :unfollowed_users, ->(user) {where.not(id: (user.approved_follows + [user]).map(&:id))}
+    
+    def photo_url
+      self.photo.attached? ? url_for(user.photo) : false
+    end
 
     def password=(password)
         @password = password

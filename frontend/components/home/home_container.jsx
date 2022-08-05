@@ -1,10 +1,8 @@
-import { connect } from "react-redux"
-import { Home } from "./home"
+import { connect } from "react-redux";
+import { Home } from "./home";
 
-const mapState = state => ({
-})
+const mapState = (state) => ({});
 
-const mapDispatch = dispatch => ({
-})
+const mapDispatch = (dispatch) => ({});
 
-export const HomeContainer = connect(mapState, mapDispatch)(Home)
+export const HomeContainer = connect(mapState, mapDispatch)(Home);

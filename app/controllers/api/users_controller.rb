@@ -21,6 +21,7 @@ class Api::UsersController < ApplicationController
     end
 
     # this is all of a given users info, including their posts
+    # the current user is also included, in case their follow requests are relevant
     def show
         @user = User.includes(:approved_followers, :unapproved_followers, :pending_follows, :approved_follows, posts: {comments: :commenter, likes: :liker}).find(params[:id])
         @c_user = User.includes(:approved_follower_requests, :unapproved_follower_requests, :pending_follow_requests, :approved_follow_requests).find(current_user.id)

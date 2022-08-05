@@ -2,8 +2,6 @@ json.set! :users do
 
     json.partial! 'api/users/user', user: @user
 
-
-
     @user.posts.each do |post|
         post.comments.each do |comment|
             json.partial! 'api/users/user', user: comment.commenter
@@ -33,7 +31,15 @@ json.set! :users do
     @user.followed_posts.each do |post|
         json.partial! 'api/users/user', user: post.poster
     end
+
+    json.set! :unfollowed_users do
+      @unfollowed_users.each do |user|
+        json.partial! 'api/users/user', user: user
+      end
+    end
+
 end
+
 
 
 json.set! :posts do
