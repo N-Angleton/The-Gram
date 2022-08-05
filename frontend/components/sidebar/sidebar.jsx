@@ -22,7 +22,7 @@ export class Sidebar extends React.Component {
         <ul className="user_list">
           {this.props.users.unfollowed_users
             ? Object.values(this.props.users.unfollowed_users).map((user) => (
-                <SidebarUser key={`user_${user.id}`} user={user} />
+                <SidebarUser key={`user_${user.id}`} fetchFeed={this.props.fetchUsersFeed} current_user_id={current_user.id} user={user} createFollow={this.props.createFollow}/>
               ))
             : null}
         </ul>

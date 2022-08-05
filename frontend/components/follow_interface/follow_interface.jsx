@@ -17,7 +17,7 @@ export class FollowInterface extends React.Component {
   requestFollow(e) {
     e.preventDefault();
     this.props.createFollow({
-      approved: false,
+      approved: true,
       follower_id: this.props.current_user_id,
       user_to_be_followed_id: this.props.otherUser,
     });
@@ -59,7 +59,7 @@ export class FollowInterface extends React.Component {
         ) : null}
         {following_status === "pending" ? (
           <button onClick={(e) => this.deleteRequest(e)}>
-            Unrequest Follow
+            Unfollow
           </button>
         ) : null}
       </div>

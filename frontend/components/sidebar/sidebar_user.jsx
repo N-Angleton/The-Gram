@@ -11,5 +11,10 @@ export const SidebarUser = (props) => (
      <Link to={`/${props.user.username}`} className="userProfileLink">
       <h3>{props.user.username}</h3>
      </Link>
+     <button onClick={() => {props.createFollow({
+      approved: true,
+      follower_id: props.current_user_id,
+      user_to_be_followed_id: props.user.id,
+    }).then(() => props.fetchFeed(props.current_user_id))}}>Follow</button>
   </div>
 );

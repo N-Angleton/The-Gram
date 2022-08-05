@@ -11,7 +11,6 @@ export class Home extends React.Component {
   render() {
     return (
       <div className="home">
-        <HeaderContainer />
         <main className="feed">
           <FeedContainer />
         </main>
