@@ -6,13 +6,13 @@ import { faEnvelope } from "@fortawesome/free-solid-svg-icons";
 export const Footer = () => (
   <div className="footer">
     <a href="https://github.com/N-Angleton">
-      <FontAwesomeIcon className="icon github" icon={faGithub} />
+      <FontAwesomeIcon className="footerIcon github" icon={faGithub} />
     </a>
     <a href="mailto: nick.angleton@gmail.com">
-      <FontAwesomeIcon className="icon email" icon={faEnvelope} />
+      <FontAwesomeIcon className="footerIcon email" icon={faEnvelope} />
     </a>
     <a href="https://www.linkedin.com/in/nhangleton/">
-      <FontAwesomeIcon className="icon linkedin" icon={faLinkedin} />
+      <FontAwesomeIcon className="footerIcon linkedin" icon={faLinkedin} />
     </a>
   </div>
 );

@@ -46,7 +46,7 @@ export class Post extends React.Component {
   render() {
     return (
       <li className="postItem">
-        <h1 className="posterName">{this.props.poster.username}</h1>
+        <h2 className="posterName">{this.props.poster.username}</h2>
         {this.props.poster.id === this.props.session_id ? (
           <>
             <button onClick={(e) => this.editDescription(e)}>Edit</button>
@@ -67,7 +67,7 @@ export class Post extends React.Component {
             <button onClick={(e) => this.updatePost(e)}>Repost</button>
           </form>
         ) : (
-          <h2 className="postDescription">{this.props.post.description}</h2>
+          <p className="postDescription">{this.props.post.description}</p>
         )}
         <CommentsContainer post_id={this.props.post.id} />
       </li>

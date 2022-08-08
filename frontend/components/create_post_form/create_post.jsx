@@ -11,7 +11,6 @@ export class CreatePostForm extends React.Component {
     };
     this.createPost = this.createPost.bind(this);
     this.update = this.update.bind(this);
-    // this.escape = this.escape.bind(this);
     this.handleFile = this.handleFile.bind(this);
   }
 

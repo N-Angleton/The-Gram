@@ -255,7 +255,7 @@ button.showHideButton {
   opacity: 1;
 }
 
-.icon {
+.footerIcon {
   font-size: 45px;
   color: $light-blue;
   transition-timing-function: ease-in-out;
@@ -263,7 +263,7 @@ button.showHideButton {
   transition-duration: 0.2s;
 }
 
-.icon:hover {
+.footerIcon:hover {
   color: $dark-blue;
 }
 

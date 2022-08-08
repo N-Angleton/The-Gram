@@ -46,7 +46,7 @@ export class Header extends React.Component {
             src={user.photoUrl ? user.photoUrl : window.defaultPhoto}
             alt="profile photo"
           />
-          <LogoutButtonContainer />
+          {/* <LogoutButtonContainer /> */}
         </ul>
         <dialog id="postModal"><CreatePostContainer closePost={this.closePost.bind(this)} /></dialog>
       </header>
