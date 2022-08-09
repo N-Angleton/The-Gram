@@ -14,7 +14,7 @@ export class Feed extends React.Component {
     return (
       <ul className="post_list">
         {this.props.posts
-          ? Object.values(this.props.posts).map((post) => (
+          ? Object.values(this.props.posts).reverse().map((post) => (
               <PostContainer key={`post_${post.id}`} post={post} />
             ))
           : null}

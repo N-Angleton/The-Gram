@@ -29,6 +29,10 @@
   font-size: 20px;
 }
 
+.heartIcon.filled {
+  color: $red;
+}
+
 .postEditInput, .editPostBtn, .postDescription {
   display: inline-block;
   margin-top: 0;
@@ -149,5 +153,71 @@ a {
 }
 
 .currentUserContainer * {
+  font-size: 16px;
+}
+
+.fullnameOtherUser {
+  color: $gray-font;
+}
+
+.otherUserImg {
+  height: 28px;
+  width: 28px;
+  border-radius: 50%;
+  border: 2px solid $black;
+  display: inline-block;
+  margin-right: 20px;
+}
+
+.usernameOtherUser, .fullnameOtherUser {
+  display: block;
+  margin: 0;
   font-size: 12px;
+}
+
+.namesContainer link {
+  margin: 0;
+}
+
+.suggestions {
+  margin-top: 16px;
+  color: $gray-font;
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.namesContainer {
+  display: inline-block;
+}
+
+.btn-follow {
+  color: $dark-blue;
+  border: none;
+  background-color: transparent;
+  position: absolute;
+  font-weight: bold;
+  top: 10px;
+  right: 20px;
+  cursor: pointer;
+}
+
+.followUserContainer {
+  position: relative;
+  margin-bottom: 12px;
+}
+
+.myInfo {
+  margin-top: 48px;
+  color: $gray-font;
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.myIcon {
+  font-size: 24px;
+  color: $light-blue;
+}
+
+.myIcon:hover {
+  color: $dark-blue;
 }

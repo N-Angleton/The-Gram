@@ -11,7 +11,7 @@ export class FollowInterface extends React.Component {
       this.props.follows.approved_follows.filter(
         (e) => Object.keys(e) == this.props.otherUser
       )[0][this.props.otherUser]
-    );
+    ).then( () => this.props.fetchUsersFeed(this.props.current_user_id));
   }
 
   requestFollow(e) {

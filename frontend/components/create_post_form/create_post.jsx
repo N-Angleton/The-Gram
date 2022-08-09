@@ -82,6 +82,7 @@ export class CreatePostForm extends React.Component {
           <input
             type="text"
             name="description"
+            placeholder="Description..."
             value={this.state.description}
             onChange={this.update}
           />
