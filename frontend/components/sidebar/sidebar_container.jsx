@@ -10,7 +10,8 @@ const mapState = (state) => ({
 
 const mapDispatch = (dispatch) => ({
   createFollow: (follow) => dispatch(createFollow(follow)),
-  fetchUsersFeed: (user_id) => dispatch(fetchUsersFeed(user_id))
+  fetchUsersFeed: (user_id) => dispatch(fetchUsersFeed(user_id)),
+  logout: () => dispatch(logout())
 });
 
 export const SidebarContainer = connect(mapState, mapDispatch)(Sidebar);

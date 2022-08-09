@@ -13,8 +13,8 @@ export class LogoutButton extends React.Component {
 
   render() {
     return (
-      <form onSubmit={this.handleSubmit}>
-        <button>Logout</button>
+      <form className="logoutForm" onSubmit={this.handleSubmit}>
+        <button className="btn-logout">Logout</button>
       </form>
     );
   }

@@ -57,18 +57,22 @@ export class Post extends React.Component {
         )}
         <img className="post_img" src={this.props.post.photoUrl} alt="post" />
         <LikesContainer post_id={this.props.post.id} />
-        {this.state.editing ? (
-          <form className="editPostForm">
-            <input
-              type="text"
-              value={this.state.description}
-              onChange={(e) => this.updateDescription(e)}
-            />
-            <button onClick={(e) => this.updatePost(e)}>Repost</button>
-          </form>
-        ) : (
-          <p className="postDescription">{this.props.post.description}</p>
-        )}
+        <div className="descriptionBlock">
+          <span className="posterNameForDescription">{this.props.poster.username}</span>
+          {this.state.editing ? (
+            <form className="editPostForm">
+              <input
+                type="text"
+                className="postDescription postEditInput"
+                value={this.state.description}
+                onChange={(e) => this.updateDescription(e)}
+              />
+              <button onClick={(e) => this.updatePost(e)} className="btn editPostBtn">Repost</button>
+            </form>
+          ) : (
+            <p className="postDescription">{this.props.post.description}</p>
+          )}
+        </div>
         <CommentsContainer post_id={this.props.post.id} />
       </li>
     );

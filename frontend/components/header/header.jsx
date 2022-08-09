@@ -22,7 +22,6 @@ export class Header extends React.Component {
   }
 
   closePost(e) {
-    console.log('inside close')
     if (e) e.preventDefault();
     this.setState({createPost: false})
     const postModal = document.getElementById("postModal");

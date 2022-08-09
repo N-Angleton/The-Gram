@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { LogoutButtonContainer } from "../logout_button/logout_button_container";
 import { SidebarUser } from "./sidebar_user";
 
 export class Sidebar extends React.Component {
@@ -11,14 +12,20 @@ export class Sidebar extends React.Component {
     let current_user = this.props.users[this.props.session.id];
     return (
       <>
+      <div className="currentUserContainer">
         <img
-            className="currentUser"
+            className="currentUserPhoto"
             src={current_user.photoUrl ? current_user.photoUrl : window.defaultPhoto}
             alt="profile photo"
           />
-      <Link to={`/${current_user.username}`} className="currentUserProfileLink">
-        <h2>{current_user.username}</h2>
-      </Link>
+          <div className="usernameAndFullname">
+            <Link to={`/${current_user.username}`} className="currentUserProfileLink">
+              <h2>{current_user.username}</h2>
+            </Link>
+            <h2 className="fullname">{current_user.full_name}</h2>
+          </div>
+          <LogoutButtonContainer />
+      </div>
         <ul className="user_list">
           {this.props.users.unfollowed_users
             ? Object.values(this.props.users.unfollowed_users).map((user) => (

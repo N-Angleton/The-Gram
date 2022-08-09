@@ -16,6 +16,13 @@
     url("roboto-v29-latin-regular.woff") format("woff");
 }
 
+@font-face {
+  font-family: "Roboto";
+  font-style: normal;
+  font-weight: 700;
+  src: url("Roboto-Bold.ttf") format("truetype");
+}
+
 body {
   font-family: "Roboto";
   background-color: $gray-bg;

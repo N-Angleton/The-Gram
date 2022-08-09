@@ -29,7 +29,7 @@ export class Likes extends React.Component {
   render() {
     return (
       <div className="likesContainer">
-        <span>
+        <span className="heartContainer">
           {this.props.likedByUser ? (
             <FontAwesomeIcon
               className="heartIcon filled"

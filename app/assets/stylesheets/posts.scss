@@ -5,3 +5,149 @@
   margin-bottom: 30px;
   border-radius: 10px;
 }
+
+.posterName {
+  display: inline-block;
+  padding-left: 10px;
+  padding-right: 15px;
+}
+
+.likesNum {
+  display: inline-block;
+  font-size: 20px;
+  color: $black;
+}
+
+.heartContainer {
+  display: inline-block;
+  margin-left: 10px;
+  margin-right: 15px;
+}
+
+.heartIcon {
+  color: $black;
+  font-size: 20px;
+}
+
+.postEditInput, .editPostBtn, .postDescription {
+  display: inline-block;
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.posterNameForDescription {
+  padding-right: 10px;
+  font-weight: bold;
+}
+
+.descriptionBlock {
+  padding-right: 10px;
+  padding-left: 10px;
+  padding-bottom: 10px;
+}
+
+.commentForm {
+  width: 100%;
+  position: relative;
+  border-top: 2px solid $gray-border;
+}
+
+.commentContainer {
+  padding: 10px;
+  padding-bottom: 10px;
+}
+
+.commenterUsername {
+  padding: 0;
+  margin: 0;
+  padding-right: 10px;
+  display: inline-block;
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.commentBody {
+  padding: 0;
+  margin: 0;
+  display: inline-block;
+  font-size: 16px;
+}
+
+.commentCreator {
+  border: none;
+  font-size: 16px;
+  width: 400px;
+  min-height: 48px;
+  rows: 3;
+  cols: 33;
+  wrap: hard;
+  overflow-wrap: break-word;
+  outline: none;
+  text-indent: 10px;
+}
+
+.btn-post {
+  font-size: 16px;
+  color: $dark-blue;
+  background-color: transparent;
+  font-weight: bold;
+  border: none;
+  position: absolute;
+  top: 16px;
+}
+
+.currentUserPhoto {
+  height: 56px;
+  width: 56px;
+  border: 2px solid black;
+  border-radius: 50%;
+  display: inline-block;
+  margin-right: 15px;
+}
+
+a {
+  text-decoration: none;
+  color: $black;
+}
+
+.fullname {
+  color: $gray-font;
+}
+
+.usernameAndFullname h2 {
+  margin: 0;
+}
+
+.currentUserProfileLink h2 {
+  margin-bottom: 10px;
+}
+
+.usernameAndFullname {
+  display: inline-block;
+  font-size: 12px;
+}
+
+.btn-logout {
+  border: none;
+  color: $dark-blue;
+  background-color: transparent;
+  display: inline-block;
+  font-weight: bold;
+  width: fit-content;
+  cursor: pointer;
+}
+
+.logoutForm {
+  width: fit-content;
+  position: absolute;
+  right: 20px;
+  top: 20px;
+}
+
+.currentUserContainer {
+  position: relative;
+}
+
+.currentUserContainer * {
+  font-size: 12px;
+}

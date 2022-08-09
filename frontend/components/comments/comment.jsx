@@ -38,8 +38,8 @@ export class Comment extends React.Component {
   render() {
     return (
       <li key={`comment${this.props.comment.id}`} className="commentContainer">
-        <h1 className="commenterUsername">{this.props.commenter.username}</h1>
-        {this.state.editing ? (
+        {/* <h2 className="commenterUsername">{this.props.commenter.username}</h2> */}
+        {/* {this.state.editing ? (
           <form className="editCommentForm">
             <input
               type="text"
@@ -49,11 +49,11 @@ export class Comment extends React.Component {
             <button onClick={(e) => this.submitEditedComment(e)}>Repost</button>
           </form>
         ) : (
-          <p className="commentBody">{this.props.comment.body}</p>
-        )}
+          )} */}
+        <p className="commentBody"><span className="commenterUsername">{this.props.commenter.username}</span>{this.props.comment.body}</p>
         {this.props.commenter.id === this.props.session_id ? (
           <>
-            <button onClick={(e) => this.editComment(e)}>Edit</button>
+            {/* <button onClick={(e) => this.editComment(e)}>Edit</button> */}
             <button onClick={(e) => this.deleteComment(e)}>Delete</button>
           </>
         ) : (

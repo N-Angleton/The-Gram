@@ -43,13 +43,13 @@ export class Comments extends React.Component {
         </ul>
         <form className="commentForm">
           <input
-            type="text"
+            type="textarea"
             placeholder="Add a comment..."
             value={this.state.body}
             onChange={(e) => this.updateValue(e)}
             className="commentCreator"
           />
-          <button onClick={(e) => this.submitComment(e)}>Post</button>
+          <button className="btn btn-post" onClick={(e) => this.submitComment(e)}>Post</button>
         </form>
       </div>
     );
