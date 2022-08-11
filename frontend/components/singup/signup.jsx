@@ -50,61 +50,73 @@ export class Signup extends React.Component {
   }
 
   render() {
-    if (this.props.session.id !== null) {
-      return <Redirect to="/" />;
-    } else {
-      return (
-        <>
-          <h1>Sign Up</h1>
-          <form onSubmit={this.handleSubmit}>
-            <label>
-              Username
-              <input
-                type="text"
-                value={this.state.username}
-                name="username"
-                onChange={this.update}
-              />
-            </label>
-            <label>
-              Name
-              <input
-                type="text"
-                value={this.state.full_name}
-                name="full_name"
-                onChange={this.update}
-              />
-            </label>
-            <label>
-              Password
-              <input
-                type="text"
-                value={this.state.password}
-                name="password"
-                onChange={this.update}
-              />
-            </label>
-            <label>
-              Email
-              <input
-                type="email"
-                value={this.state.email}
-                name="email"
-                onChange={this.update}
-              />
-            </label>
-            <button type="submit">Sign Up</button>
-          </form>
-          <br />
-          <button
-            className="demoUserSignupButton"
-            onClick={() => this.loginDemo()}
-          >
-            Sign in as demo user
-          </button>
-          <Link to="/">Already have an account</Link>
-        </>
-      );
-    }
+    return (
+      <>
+      <main className="signupContainer">
+        <h1 className="signInTitle">the gram</h1>
+        <h2 className="signinSubtitle">Sign up to see photos and videos from your friends.</h2>
+        <button
+          className="demoUserSignupButton"
+          onClick={() => this.loginDemo()}
+        >
+          Sign in as demo user
+        </button>
+        <div className="orContainer orSignUp">
+          <div className="line"></div>
+          <span className="or">OR</span>
+          <div className="line"></div>
+        </div>
+        <form onSubmit={this.handleSubmit}>
+          <label>
+            {/* Email */}
+            <input
+              type="email"
+              value={this.state.email}
+              name="email"
+              placeholder="Email"
+              onChange={this.update}
+            />
+          </label>
+          <label>
+            {/* Name */}
+            <input
+              type="text"
+              value={this.state.full_name}
+              name="full_name"
+              placeholder="Full Name"
+              onChange={this.update}
+            />
+          </label>
+          <label>
+            {/* Username */}
+            <input
+              type="text"
+              value={this.state.username}
+              name="username"
+              placeholder="Username"
+              onChange={this.update}
+            />
+          </label>
+          <label>
+            {/* Password */}
+            <input
+              type="text"
+              value={this.state.password}
+              name="password"
+              placeholder="Password"
+              onChange={this.update}
+            />
+          </label>
+          <button className="btn-signUp" type="submit">Sign Up</button>
+          <div className="errorContainer">
+            {this.props.errors.session.length ? this.props.errors.session.map( (error, ind) => <p className="error" key={`error_${ind}`}>{error}</p>) : ""}
+          </div>
+        </form>
+      </main>
+      <div className="loginLinkContainer">
+        <h2 className="loginLinkText">Have an account? <Link className="loginLink" to="/">Log in</Link></h2>
+      </div>
+      </>
+    );
   }
 }

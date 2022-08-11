@@ -1,6 +1,6 @@
 class Post < ApplicationRecord
 
-    validates :description, presence: true
+    # validates :description, presence: true
 
     validate :ensure_photo
 

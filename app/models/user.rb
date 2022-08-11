@@ -6,8 +6,8 @@ class User < ApplicationRecord
 
     attr_reader :password, :photo_url
 
-    validates :username, :full_name, :password_digest, :session_token, presence: true
-    validates :username, :full_name, :session_token, uniqueness: true
+    validates :email, :username, :full_name, :password_digest, :session_token, presence: true
+    validates :email, :username, :full_name, :session_token, uniqueness: true
     validates :password, length: {minimum: 6}, allow_nil: true
 
     has_many :posts,

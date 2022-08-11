@@ -115,6 +115,9 @@ export class Login extends React.Component {
                 Sign In
               </button>
             </form>
+            <div className="errorContainer signinErrors">
+            {this.props.errors.session.length ? this.props.errors.session.map( (error, ind) => <p className="error" key={`error_${ind}`}>{error}</p>) : ""}
+            </div>
             <div className="orContainer">
               <div className="line"></div>
               <span className="or">OR</span>

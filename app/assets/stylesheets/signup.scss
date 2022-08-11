@@ -1,0 +1,97 @@
+.signupContainer {
+  background-color: $white;
+  border: 1px solid $gray-border;
+  display: flexbox;
+  flex-direction: column;
+  width: 348px;
+  // height: 598px;
+  min-height: fit-content;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  margin: 0 auto;
+  margin-bottom: 10px;
+}
+
+.signupContainer input {
+  background-color: $gray-bg;
+  border: 1px solid $gray-border;
+  color: $black;
+  display: block;
+  width: 268px;
+  height: 38px;
+  margin: 0 auto;
+  margin-bottom: 6px;
+  outline: none;
+  text-indent: 10px;
+}
+
+.loginLinkContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: $white;
+  border: 1px solid $gray-border;
+  width: 348px;
+  height: 70px;
+  margin: 0 auto;
+}
+
+.loginLinkText {
+  font-size: 16px;
+  font-weight: normal;
+  color: $black;
+}
+
+.loginLink {
+  color: $dark-blue;
+}
+
+.signinSubtitle {
+  margin: 0 auto;
+  margin-left: 20px;
+  margin-right: 20px;
+  margin-bottom: 20px;
+  text-align: center;
+  display: block;
+  color: $gray-font;
+  font-size: 20px;
+}
+
+.demoUserSignupButton, .btn-signUp {
+  display: block;
+  margin: 0 auto;
+  width: 268px;
+  height: 32px;
+  color: $white;
+  background-color: $dark-blue;
+  border: none;
+  cursor: pointer;
+  font-weight: bold;
+  font-size: 16px;
+}
+
+.btn-signUp {
+  margin-top: 24px;
+}
+
+.errorContainer {
+  color: $red;
+  display: flexbox;
+  flex-direction: column;
+  width: max-content;
+  min-height: 20px;
+  padding: 10px;
+  margin: 0 auto;
+}
+
+.error {
+  align-self: center;
+  font-size: 12px;
+}
+
+.signinErrors {
+  min-height: 0px;
+  padding-top: 0px;
+  padding-bottom: 0px;
+  margin: 0 auto;
+}
