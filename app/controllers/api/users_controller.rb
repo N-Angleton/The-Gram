@@ -13,7 +13,7 @@ class Api::UsersController < ApplicationController
     def update
         @user = User.find(params[:id])
 
-        if @user.update(user_params)
+        if @user.update({photo: params[:user][:photo]})
             render '/api/session/create'
         else
             render json: @user.errors.full_messages, status: 404
@@ -23,7 +23,7 @@ class Api::UsersController < ApplicationController
     # this is all of a given users info, including their posts
     # the current user is also included, in case their follow requests are relevant
     def show
-        @user = User.includes(:approved_followers, :unapproved_followers, :pending_follows, :approved_follows, posts: {comments: :commenter, likes: :liker}).find(params[:id])
+        @user = User.includes(:approved_follower_requests, :unapproved_follower_requests, :pending_follow_requests, :approved_follow_requests, posts: {comments: :commenter, likes: :liker}).find_by(username: params[:id])
         @c_user = User.includes(:approved_follower_requests, :unapproved_follower_requests, :pending_follow_requests, :approved_follow_requests).find(current_user.id)
         render '/api/users/show'
     end
@@ -36,7 +36,7 @@ class Api::UsersController < ApplicationController
     end
 
     def user_params
-        params.require(:user).permit(:username, :password, :full_name, :email)
+        params.require(:user).permit(:id, :username, :password, :full_name, :email, :photo)
     end
 
 end

@@ -42,7 +42,7 @@ export class Header extends React.Component {
           )}
           <img
             className="profilePhoto"
-            src={user.photoUrl ? user.photoUrl : window.defaultPhoto}
+            src={user.photo_url ? user.photo_url : window.defaultPhoto}
             alt="profile photo"
           />
           {/* <LogoutButtonContainer /> */}

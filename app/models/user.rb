@@ -71,7 +71,7 @@ class User < ApplicationRecord
     scope :unfollowed_users, ->(user) {where.not(id: (user.approved_follows + [user]).map(&:id))}
     
     def photo_url
-      self.photo.attached? ? url_for(user.photo) : false
+      self.photo.attached? ? false : false
     end
 
     def password=(password)

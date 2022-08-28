@@ -1,6 +1,9 @@
 # json.users({})
 json.set! :users do
     json.partial! 'api/users/user', user: @user
+    if @c_user
+      json.partial! 'api/users/user', user: @c_user
+    end
 
     @user.posts.each do |post|
         post.comments.each do |comment|

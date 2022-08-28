@@ -5,11 +5,11 @@ export const SidebarUser = (props) => (
   <div className="followUserContainer">
     <img
       className="otherUserImg"
-      src={props.user.photoUrl ? props.user.photoUrl : window.defaultPhoto}
+      src={props.user.photo_url ? props.user.photo_url : window.defaultPhoto}
       alt="profile photo"
     />
     <div className="namesContainer">
-     <Link to={`/${props.user.username}`} className="userProfileLink">
+    <Link to={{pathname: `/users/${props.user.username}`, state: { id: props.user.id }}} className="userProfileLink">
       <h3 className="usernameOtherUser">{props.user.username}</h3>
      </Link>
      <h3 className="fullnameOtherUser">{props.user.full_name}</h3>

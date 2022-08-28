@@ -17,15 +17,15 @@ export class Sidebar extends React.Component {
           <img
             className="currentUserPhoto"
             src={
-              current_user.photoUrl
-                ? current_user.photoUrl
+              current_user.photo_url
+                ? current_user.photo_url
                 : window.defaultPhoto
             }
             alt="profile photo"
           />
           <div className="usernameAndFullname">
             <Link
-              to={`/${current_user.username}`}
+              to={{pathname: `/users/${current_user.username}`, state: { id: this.props.session.id }}}
               className="currentUserProfileLink"
             >
               <h2>{current_user.username}</h2>

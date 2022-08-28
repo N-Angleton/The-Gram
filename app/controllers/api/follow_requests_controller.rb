@@ -10,8 +10,7 @@ class Api::FollowRequestsController < ApplicationController
             else
                 other_user_id = @follow.follower_id
             end
-            @follow.update({approved: true}) # this approves all follow requests
-            render json: {user_id: user.id, other_user_id: other_user_id, follow_id: @follow.id}
+              render json: {user_id: user.id, other_user_id: other_user_id, follow_id: @follow.id}
         else
             render json: @follow.errors.full_messages, status: 404
         end

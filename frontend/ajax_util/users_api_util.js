@@ -11,11 +11,13 @@ export const deleteAccount = (id) =>
     url: `/api/users${id}`,
   });
 
-export const updateAccount = (user) =>
+export const updateAccount = (FormData) =>
   $.ajax({
     method: "PATCH",
-    url: `/api/users/${user.id}`,
-    data: { user },
+    url: `/api/users/${FormData.get("user[id]")}`,
+    data: FormData,
+    contentType: false,
+    processData: false,
   });
 
 // primarily gets all posts for a given profile
