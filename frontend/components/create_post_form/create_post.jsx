@@ -23,7 +23,7 @@ export class CreatePostForm extends React.Component {
 
   close(e) {
     if (e) e.preventDefault();
-    const form = document.getElementById("editPicForm")
+    const form = document.getElementById("createPostForm")
     form.reset()
     this.setState({
         poster_id: this.props.session.id,
