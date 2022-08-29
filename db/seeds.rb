@@ -1,8 +1,8 @@
-# User.destroy_all
-# FollowRequest.destroy_all
-# Comment.destroy_all
-# Like.destroy_all
-# Post.destroy_all
+User.destroy_all
+FollowRequest.destroy_all
+Comment.destroy_all
+Like.destroy_all
+Post.destroy_all
 
 demo_user = User.create({username: "Demo_User", full_name: "Thanks for visiting!", email: "Demo_User@mail.com", password: "Demo_Password"})
 philosophers = User.create({username: "Philosophers", full_name: "My favorite philosophers", email: "philosophers@mail.com", password: "password"})
