@@ -2,7 +2,7 @@
 
 ## Description
 
-The Gram is a fullstack clone of the image sharing site [Instagram](https://www.instagram.com/). Using a Rails backend and a PostgreSql database, it replicates the CRUD functionality behind creating accounts, following other users, sharing images, writing comments, and liking posts. Additionally, using a React/Redux frontend, it emulates the minimalist layout and color palette of the original site.
+The Gram is a fullstack clone of the image sharing site [Instagram](https://www.instagram.com/). Using a Rails backend and a PostgreSql database, it replicates the CRUD functionality behind following users, sharing images, writing comments, and liking posts. Additionally, using a React/Redux frontend, it emulates the minimalist layout and color palette of the original site.
 
 ## Live Link
 
