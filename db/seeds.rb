@@ -12,7 +12,7 @@ etchify = User.create({username: "Etchify", full_name: "Another site of mine", e
 paintings = User.create({username: "Paintings", full_name: "My favorite paintings", email: "paintings@mail.com", password: "paintings"})
 
 [0..35].sample(20).each do |el|
-  if (el % 6) != (el / 6) do
+  if (el % 6) != (el / 6)
     FollowRequest.create({follower_id: ((el % 6) + 1), user_to_be_followed_id: ((el / 6) + 1), approved: true})
   end
 end
