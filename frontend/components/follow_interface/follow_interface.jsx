@@ -52,14 +52,14 @@ export class FollowInterface extends React.Component {
     return (
       <div className="followInterface">
         {following_status === "following" ? (
-          <button onClick={(e) => this.unfollow(e)}>Unfollow</button>
+          <button className="btn-2" onClick={(e) => this.unfollow(e)}>unfollow</button>
         ) : null}
         {following_status === "not_following" ? (
-          <button onClick={(e) => this.requestFollow(e)}>Follow</button>
+          <button className="btn-2" onClick={(e) => this.requestFollow(e)}>follow</button>
         ) : null}
         {following_status === "pending" ? (
-          <button onClick={(e) => this.deleteRequest(e)}>
-            Unfollow
+          <button className="btn-2" onClick={(e) => this.deleteRequest(e)}>
+            unfollow
           </button>
         ) : null}
       </div>

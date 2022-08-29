@@ -3,6 +3,7 @@ import { LikesContainer } from "../likes/likes_container";
 import { CommentsContainer } from "../comments/comments_container";
 import { FollowInterfaceContainer } from "../follow_interface/follow_interface_container";
 import { flushSync } from "react-dom";
+import { Link } from "react-router-dom";
 
 export class Post extends React.Component {
   constructor(props) {
@@ -46,11 +47,19 @@ export class Post extends React.Component {
   render() {
     return (
       <li className="postItem">
-        <h2 className="posterName">{this.props.poster.username}</h2>
+        <img
+          className="postUserImg"
+          src={this.props.poster.photo_url ? this.props.poster.photo_url : window.defaultPhoto}
+          alt="profile photo"
+        />
+        <Link to={{pathname: `/users/${this.props.poster.username}`}} className="userProfileLink">
+          <h2 className="posterName">{this.props.poster.username}</h2>
+        </Link>
         {this.props.poster.id === this.props.session_id ? (
           <>
-            <button onClick={(e) => this.editDescription(e)}>Edit</button>
-            <button onClick={(e) => this.deletePost(e)}>Delete</button>
+            <button className="btn-2" onClick={(e) => this.editDescription(e)}>edit</button>
+            <span className="btn-divider">|</span>
+            <button className="btn-2" onClick={(e) => this.deletePost(e)}>delete</button>
           </>
         ) : (
           <FollowInterfaceContainer otherUser={this.props.poster.id} />
@@ -58,7 +67,9 @@ export class Post extends React.Component {
         <img className="post_img" src={this.props.post.photoUrl} alt="post" />
         <LikesContainer post_id={this.props.post.id} />
         <div className="descriptionBlock">
+        <Link to={{pathname: `/users/${this.props.poster.username}`}} className="userProfileLink">
           <span className="posterNameForDescription">{this.props.poster.username}</span>
+        </Link>
           {this.state.editing ? (
             <form className="editPostForm">
               <input

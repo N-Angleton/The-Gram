@@ -94,12 +94,12 @@ export class User extends React.Component {
             <h2 className="profileFullname">{user.full_name}</h2>
           </div>
         </div>
+        <h2 className="postsTitle">POSTS</h2>
         <main className="userPosts">
-          <h2 className="postsTitle">POSTS</h2>
           <ul className="postsContainer">
           {this.props.posts
           ? Object.values(this.props.posts).reverse().map((post) => (
-            <img className="post_img" key={`post_${post.id}`} src={post.photoUrl} alt="post" />
+            <img className="profilePostImg" key={`post_${post.id}`} src={post.photoUrl} alt="post" />
             ))
           : null}
           </ul>

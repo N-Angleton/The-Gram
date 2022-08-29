@@ -218,3 +218,47 @@ a {
 .myIcon:hover {
   color: $dark-blue;
 }
+
+.followInterface {
+  display: inline-block;
+}
+
+.posterName {
+  margin-right: 50px;
+}
+
+.btn-2 {
+  display: inline-block;
+  color: $red;
+  margin-left: 3px;
+  margin-right: 3px;
+  opacity: 70%;
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+  font-weight: bolder;
+  font-variant: small-caps;
+}
+
+.btn-2:hover {
+  opacity: 100%;
+}
+
+.btn-divider {
+  display: inline-block;
+  color: $red;
+  border: none;
+  background-color: transparent;
+  font-weight: bolder;
+}
+
+.postUserImg {
+  height: 40px;
+  width: 40px;
+  border-radius: 50%;
+  border: 2px solid $black;
+  display: inline-block;
+  margin-top: 10px;
+  margin-left: 10px;
+  margin-right: 10px;
+}

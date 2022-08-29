@@ -1,5 +1,6 @@
 import React from "react";
 import { FollowInterfaceContainer } from "../follow_interface/follow_interface_container";
+import { Link } from "react-router-dom";
 
 export class Comment extends React.Component {
   constructor(props) {
@@ -38,23 +39,14 @@ export class Comment extends React.Component {
   render() {
     return (
       <li key={`comment${this.props.comment.id}`} className="commentContainer">
-        {/* <h2 className="commenterUsername">{this.props.commenter.username}</h2> */}
-        {/* {this.state.editing ? (
-          <form className="editCommentForm">
-            <input
-              type="text"
-              value={this.state.body}
-              onChange={(e) => this.updateBody(e)}
-            />
-            <button onClick={(e) => this.submitEditedComment(e)}>Repost</button>
-          </form>
-        ) : (
-          )} */}
-        <p className="commentBody"><span className="commenterUsername">{this.props.commenter.username}</span>{this.props.comment.body}</p>
+        <p className="commentBody">
+        <Link to={{pathname: `/users/${this.props.commenter.username}`}} className="userProfileLink">
+          <span className="commenterUsername">{this.props.commenter.username}</span>
+        </Link>
+        {this.props.comment.body}</p>
         {this.props.commenter.id === this.props.session_id ? (
           <>
-            {/* <button onClick={(e) => this.editComment(e)}>Edit</button> */}
-            <button onClick={(e) => this.deleteComment(e)}>Delete</button>
+            <button className="btn-2" onClick={(e) => this.deleteComment(e)}>delete</button>
           </>
         ) : (
           <FollowInterfaceContainer otherUser={this.props.commenter.id} />

@@ -1,0 +1,110 @@
+.userProfile {
+  display: grid;
+  grid-template-columns: 1fr 935px 1fr;
+  grid-template-rows: 75px 190px 53px 1fr;
+
+  .userInfo {
+    grid-column-start: 2;
+    grid-column-end: 3;
+    grid-row-start: 2;
+    grid-row-end: 3;
+  }
+
+  .postsTitle {
+    grid-column-start: 2;
+    grid-column-end: 3;
+    grid-row-start: 3;
+    grid-row-end: 4;
+  }
+
+  .userPosts {
+    grid-column-start: 2;
+    grid-column-end: 3;
+    grid-row-start: 4;
+    grid-row-end: 5;
+  }
+}
+
+.bigProfilePhoto {
+  height: 152px;
+  width: 152px;
+  border: 2px solid black;
+  border-radius: 50%;
+  padding-top: 0;
+  padding-bottom: 0;
+  margin: auto;
+  margin-left: 70px;
+  margin-right: 100px;
+  display: inline;
+}
+
+.userText {
+  display: inline-block;
+}
+
+.profileUsername {
+  display: inline-block;
+}
+
+.profileNumbers {
+  display: inline-block;
+}
+
+.postsTitle {
+  border-top: 2px solid $gray-border;
+  text-align: center;
+  width: 100%;
+  font-size: 16px;
+  color: $gray-font;
+  margin-top: 5px;
+}
+
+.postsContainer {
+  display: flex;
+  gap: 28px 28px;
+  flex-wrap: wrap;
+}
+
+.profilePostImg {
+  width: 293px;
+  height: 293px;
+  object-fit: cover;
+}
+
+.profileUsername {
+  font-size: 24px;
+  font-weight: 500;
+  margin-right: 50px;
+  color: $black;
+}
+
+.prof-btn {
+  font-size: 16px;
+  padding-top: 4px;
+  padding-bottom: 2px;
+  cursor: pointer;
+  color: $black;
+  background-color: $gray-bg;
+  border: 2px solid $gray-border;
+}
+
+.prof-btn:focus {
+  outline: none;
+  box-shadow: none;
+}
+
+.profileNumbers {
+  margin-right: 30px;
+  color: $black;
+}
+
+.profileNumbers em {
+  font-weight: 700;
+  font-style: normal;
+}
+
+.profileFullname {
+  font-weight: 700;
+  color: $black;
+  font-size: 16px;
+}

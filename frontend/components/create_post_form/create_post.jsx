@@ -12,21 +12,27 @@ export class CreatePostForm extends React.Component {
     this.createPost = this.createPost.bind(this);
     this.update = this.update.bind(this);
     this.handleFile = this.handleFile.bind(this);
+    this.close = this.close.bind(this);
   }
 
   escape(e){
     if (e.key === "Escape") {
-      const form = document.getElementById("createPostForm")
-      form.reset()
-      this.setState({
-          description: "",
-          poster_id: this.props.session.id,
-          photoFile: null,
-          photoUrl: null,
-        })
-      this.props.closePost()
+      this.close()
     }
   }
+
+  close(e) {
+    if (e) e.preventDefault();
+    const form = document.getElementById("editPicForm")
+    form.reset()
+    this.setState({
+        poster_id: this.props.session.id,
+        photoFile: null,
+        photoUrl: null,
+    })
+    this.props.closePost()
+  }
+
   componentDidMount(){
     document.addEventListener("keydown", this.escape.bind(this), false);
   }
@@ -87,6 +93,7 @@ export class CreatePostForm extends React.Component {
             onChange={this.update}
           />
           <input type="file" id="postFile" onChange={this.handleFile} />
+          <button onClick={this.close}>Cancel</button>
           <button type="submit">Create</button>
         </form>
       </div>

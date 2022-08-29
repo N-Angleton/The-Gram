@@ -10,20 +10,27 @@ export class EditPic extends React.Component {
     };
     this.createPost = this.createPost.bind(this);
     this.handleFile = this.handleFile.bind(this);
+    this.close = this.close.bind(this);
   }
 
   escape(e){
     if (e.key === "Escape") {
-      const form = document.getElementById("editPicForm")
-      form.reset()
-      this.setState({
-          poster_id: this.props.session.id,
-          photoFile: null,
-          photoUrl: null,
-      })
-      this.props.closePost()
+      this.close()
     }
   }
+
+  close(e) {
+    if (e) e.preventDefault();
+    const form = document.getElementById("editPicForm")
+    form.reset()
+    this.setState({
+        poster_id: this.props.session.id,
+        photoFile: null,
+        photoUrl: null,
+    })
+    this.props.closePost()
+  }
+
   componentDidMount(){
     document.addEventListener("keydown", this.escape.bind(this), false);
   }
@@ -66,7 +73,7 @@ export class EditPic extends React.Component {
       <img className="previewImg" src={this.state.photoUrl} alt="preview" />
     ) : (
       <img
-            className="profilePhoto"
+            className="previewImg"
             src={this.props.entities.users[this.props.session.id].photo_url ? this.props.entities.users[this.props.session.id].photo_url : window.defaultPhoto}
             alt="profile photo"
           />);
@@ -75,7 +82,8 @@ export class EditPic extends React.Component {
         {preview}
         <form onSubmit={this.createPost} id="editPicForm" method="dialog">
           <input type="file" id="postFile" onChange={this.handleFile} />
-          <button type="submit">Create</button>
+          <button onClick={this.close}>Cancel</button>
+          <button type="submit">Submit</button>
         </form>
       </div>
     );
