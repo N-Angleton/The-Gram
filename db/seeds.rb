@@ -1,5 +1,5 @@
 User.destroy_all
-Follow_request.destroy_all
+FollowRequest.destroy_all
 Comment.destroy_all
 Like.destroy_all
 Post.destroy_all
