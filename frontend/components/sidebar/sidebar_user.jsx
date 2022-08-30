@@ -18,6 +18,6 @@ export const SidebarUser = (props) => (
       approved: true,
       follower_id: props.current_user_id,
       user_to_be_followed_id: props.user.id,
-    }).then(() => props.fetchFeed(props.current_user_id))}}>follow</button>
+    }).then(() => props.fetchFeed(props.current_user_id))}}>Follow</button>
   </div>
 );

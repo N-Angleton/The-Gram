@@ -15,6 +15,7 @@ export class User extends React.Component {
           let otherUserId = ids.find(value => parseInt(value) !== this.props.current_user_id)
           this.setState({ userId: otherUserId});
         }
+
       }
       ,
       error => this.props.history.push('/')
@@ -52,13 +53,30 @@ export class User extends React.Component {
     }
   }
 
+  componentDidUpdate(prevProps) {
+    if (this.props.location.pathname !== prevProps.location.pathname) {
+      this.props.fetchUserProfile(this.props.location.pathname.replace("/users/", "")).then(
+        data => {
+          let ids = Object.keys(data.users);
+          if (ids.length === 1) { this.setState({ userId: this.props.current_user_id})} else {
+            let otherUserId = ids.find(value => parseInt(value) !== this.props.current_user_id)
+            this.setState({ userId: otherUserId});
+          }
+  
+        }
+        ,
+        error => this.props.history.push('/')
+        )
+    }
+  }
+
   render() {
     let user;
     if (this.state.userId) {
       user = this.props.users[this.state.userId];
     }
     return (
-      this.state.userId ?
+      user ?
       <div className="userProfile">
         <div className="userInfo">
           <img
