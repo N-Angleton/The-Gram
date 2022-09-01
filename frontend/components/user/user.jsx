@@ -104,7 +104,7 @@ export class User extends React.Component {
                 </button>
               )
               }
-                {/* { this.props.follows[this.state.userId] ? (
+                { this.props.follows[this.state.userId] ? (
                 <div className="profileNumbersContainer">
 
                 {Object.keys(this.props.posts).length > 1 || Object.keys(this.props.posts).length === 0 ? (<p className="profileNumbers"><em>{Object.keys(this.props.posts).length}</em> posts</p>) :(
@@ -117,7 +117,7 @@ export class User extends React.Component {
                   <p className="profileNumbers"><em></em> following</p>
                 )} </div>) : (
                   <></>
-                )} */}
+                )}
               <h2 className="profileFullname">{user.full_name}</h2>
             </div>
           </div>
