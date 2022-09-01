@@ -228,8 +228,13 @@ a {
   display: flex;
 }
 
+.myLinks {
+  display: block;
+  // width: fit-content;
+  // margin: 0 auto;
+}
+
 .myInfo {
-  // margin-top: 48px;
   color: $gray-font;
   font-size: 16px;
   font-weight: bold;
@@ -238,6 +243,8 @@ a {
 .myIcon {
   font-size: 24px;
   color: $light-blue;
+  margin-left: 8px;
+  margin-right: 8px;
 }
 
 .myIcon:hover {
