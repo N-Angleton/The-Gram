@@ -53,6 +53,8 @@
 .commentForm {
   width: 100%;
   position: relative;
+  border-radius: 0;
+  background-color: transparent;
   border-top: 2px solid $gray-border;
 }
 
@@ -79,6 +81,7 @@
 
 .commentCreator {
   border: none;
+  background-color: transparent;
   font-size: 16px;
   width: 400px;
   min-height: 48px;
@@ -104,6 +107,7 @@
   border-radius: 50%;
   display: inline-block;
   margin-right: 15px;
+  object-fit: cover;
 }
 
 a {
@@ -114,6 +118,14 @@ a {
 .fullname {
   color: $gray-font;
 }
+
+// .currentUserContainer {
+//   position: relative;
+// }
+
+// .currentUserContainer * {
+//   font-size: 16px;
+// }
 
 .usernameAndFullname h2 {
   margin: 0;
@@ -126,6 +138,9 @@ a {
 .usernameAndFullname {
   display: inline-block;
   font-size: 12px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
 .btn-logout {
@@ -147,6 +162,7 @@ a {
 
 .currentUserContainer {
   position: relative;
+  display: flex;
 }
 
 .currentUserContainer * {
@@ -164,11 +180,18 @@ a {
   border: 2px solid $black;
   display: inline-block;
   margin-right: 20px;
+  object-fit: cover;
+}
+
+.textContainer {
+  display: flex;
+  vertical-align: middle;
 }
 
 .usernameOtherUser, .fullnameOtherUser {
   display: block;
   margin: 0;
+  margin-bottom: 6px;
   font-size: 12px;
 }
 
@@ -201,10 +224,11 @@ a {
 .followUserContainer {
   position: relative;
   margin-bottom: 12px;
+  display: flex;
 }
 
 .myInfo {
-  margin-top: 48px;
+  // margin-top: 48px;
   color: $gray-font;
   font-size: 16px;
   font-weight: bold;
@@ -220,7 +244,7 @@ a {
 }
 
 .followInterface {
-  display: inline-block;
+  display: flex;
 }
 
 .posterName {
@@ -245,11 +269,22 @@ a {
 }
 
 .btn-divider {
-  display: inline-block;
   color: $red;
   border: none;
   background-color: transparent;
   font-weight: bolder;
+  display: inline-block;
+  height: 68.3px;
+  line-height: 68.3px;
+  white-space: nowrap;
+}
+
+.btn-block {
+  position: absolute;
+  display: flex;
+  top: 0;
+  right: 0;
+  height: 68.3px;
 }
 
 .postUserImg {
@@ -261,4 +296,10 @@ a {
   margin-top: 10px;
   margin-left: 10px;
   margin-right: 10px;
+  object-fit: cover;
+}
+
+.postHeader {
+  display: flex;
+  position: relative;
 }

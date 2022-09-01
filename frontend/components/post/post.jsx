@@ -47,23 +47,27 @@ export class Post extends React.Component {
   render() {
     return (
       <li className="postItem">
-        <img
-          className="postUserImg"
-          src={this.props.poster.photo_url ? this.props.poster.photo_url : window.defaultPhoto}
-          alt="profile photo"
-        />
-        <Link to={{pathname: `/users/${this.props.poster.username}`}} className="userProfileLink">
-          <h2 className="posterName">{this.props.poster.username}</h2>
-        </Link>
-        {this.props.poster.id === this.props.session_id ? (
-          <>
-            <button className="btn-2" onClick={(e) => this.editDescription(e)}>edit</button>
-            <span className="btn-divider">|</span>
-            <button className="btn-2" onClick={(e) => this.deletePost(e)}>delete</button>
-          </>
-        ) : (
-          <FollowInterfaceContainer otherUser={this.props.poster.id} />
-        )}
+        <div className="postHeader">
+          <img
+            className="postUserImg"
+            src={this.props.poster.photo_url ? this.props.poster.photo_url : window.defaultPhoto}
+            alt="profile photo"
+          />
+          <Link to={{pathname: `/users/${this.props.poster.username}`}} className="userProfileLink">
+            <h2 className="posterName">{this.props.poster.username}</h2>
+          </Link>
+          <div className="btn-block">
+          {this.props.poster.id === this.props.session_id ? (
+            <>
+              <button className="btn-2" onClick={(e) => this.editDescription(e)}>edit</button>
+              <span className="btn-divider">|</span>
+              <button className="btn-2" onClick={(e) => this.deletePost(e)}>delete</button>
+            </>
+              ) : (
+                <FollowInterfaceContainer otherUser={this.props.poster.id} />
+                )}
+          </div>
+        </div>
         <img className="post_img" src={this.props.post.photoUrl} alt="post" />
         <LikesContainer post_id={this.props.post.id} />
         <div className="descriptionBlock">

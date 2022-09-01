@@ -25,6 +25,10 @@
   }
 }
 
+.userInfo {
+  display: flex;
+}
+
 .bigProfilePhoto {
   height: 152px;
   width: 152px;
@@ -36,10 +40,14 @@
   margin-left: 70px;
   margin-right: 100px;
   display: inline;
+  object-fit: cover;
 }
 
 .userText {
   display: inline-block;
+  height: fit-content;
+  margin-top: 30px;
+  
 }
 
 .profileUsername {
@@ -72,6 +80,7 @@
 }
 
 .profileUsername {
+  margin-top: 0px;
   font-size: 24px;
   font-weight: 500;
   margin-right: 50px;

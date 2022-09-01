@@ -84,32 +84,40 @@ export class User extends React.Component {
               src={user.photo_url ? user.photo_url : window.defaultPhoto}
               alt="user profile photo"
           />
-          <div className="userText">
-            <h2 className="profileUsername">{user.username}</h2>
-            {this.state.userId === this.props.current_user_id ?
-            (
-            <button className="prof-btn" onClick={() => this.openPost()}>
-              Edit Profile Photo
-            </button> )
-            :
-            (
-              <button className="prof-btn" onClick={() => this.toggleFollow()}>
-                {
-                  (this.props.follows[this.props.current_user_id].approved_follows.some(follow => Object.keys(follow) == this.state.userId)) ? (
-                    "Unfollow"
-                  ) : (
-                    "Follow"
-                  )
-                }
-              </button>
-            )
-            }
-            <div className="profileNumbersContainer">
-              <p className="profileNumbers"><em>{Object.keys(this.props.posts).length}</em> posts</p>
-              <p className="profileNumbers"><em>{this.props.follows[this.state.userId].approved_followers.length}</em> followers</p>
-              <p className="profileNumbers"><em>{this.props.follows[this.state.userId].approved_follows.length}</em> following</p>
+          <div className="textContainer">
+            <div className="userText">
+              <h2 className="profileUsername">{user.username}</h2>
+              {this.state.userId === this.props.current_user_id ?
+              (
+              <button className="prof-btn" onClick={() => this.openPost()}>
+                Edit Profile Photo
+              </button> )
+              :
+              (
+                <button className="prof-btn" onClick={() => this.toggleFollow()}>
+                  {
+                    (this.props.follows[this.props.current_user_id].approved_follows.some(follow => Object.keys(follow) == this.state.userId)) ? (
+                      "Unfollow"
+                    ) : (
+                      "Follow"
+                    )
+                  }
+                </button>
+              )
+              }
+              <div className="profileNumbersContainer">
+                {/* <p className="profileNumbers"><em>{Object.keys(this.props.posts).length}</em> posts</p> */}
+                {Object.keys(this.props.posts).length > 1 || Object.keys(this.props.posts).length === 0 ? (<p className="profileNumbers"><em>{Object.keys(this.props.posts).length}</em> posts</p>) :(
+                  <p className="profileNumbers"><em>1</em> post</p>
+                )}
+                {/* <p className="profileNumbers"><em>{this.props.follows[this.state.userId].approved_followers.length}</em> followers</p> */}
+                {this.props.follows[this.state.userId].approved_followers.length > 1 || this.props.follows[this.state.userId].approved_followers.length === 0 ? (<p className="profileNumbers"><em>{this.props.follows[this.state.userId].approved_followers.length}</em> followers</p>) :(
+                  <p className="profileNumbers"><em>1</em> follower</p>
+                )}
+                <p className="profileNumbers"><em>{this.props.follows[this.state.userId].approved_follows.length}</em> following</p>
+              </div>
+              <h2 className="profileFullname">{user.full_name}</h2>
             </div>
-            <h2 className="profileFullname">{user.full_name}</h2>
           </div>
         </div>
         <h2 className="postsTitle">POSTS</h2>
