@@ -71,11 +71,11 @@ export class Post extends React.Component {
         <img className="post_img" src={this.props.post.photoUrl} alt="post" />
         <LikesContainer post_id={this.props.post.id} />
         <div className="descriptionBlock">
-        <Link to={{pathname: `/users/${this.props.poster.username}`}} className="userProfileLink">
-          <span className="posterNameForDescription">{this.props.poster.username}</span>
-        </Link>
           {this.state.editing ? (
             <form className="editPostForm">
+              <Link to={{pathname: `/users/${this.props.poster.username}`}} className="userProfileLink">
+                <span className="posterNameForDescription">{this.props.poster.username}</span>
+              </Link>
               <input
                 type="text"
                 className="postDescription postEditInput"
@@ -85,7 +85,9 @@ export class Post extends React.Component {
               <button onClick={(e) => this.updatePost(e)} className="btn editPostBtn">Repost</button>
             </form>
           ) : (
-            <p className="postDescription">{this.props.post.description}</p>
+            <p className="postDescription"><Link to={{pathname: `/users/${this.props.poster.username}`}} className="userProfileLink">
+            <span className="posterNameForDescription">{this.props.poster.username}</span>
+          </Link>{this.props.post.description}</p>
           )}
         </div>
         <CommentsContainer post_id={this.props.post.id} />
