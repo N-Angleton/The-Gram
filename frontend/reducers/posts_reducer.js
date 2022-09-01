@@ -12,7 +12,7 @@ export const postsReducer = (state = {}, action) => {
   switch (action.type) {
     case RECEIVE_DATA:
       if (!action.posts) {
-        return state;
+        return {};
       }
       return action.posts;
     case ADD_OR_EDIT_POSTS:

@@ -1,6 +1,7 @@
 .home {
   display: grid;
-  grid-template-columns: 1fr 470px 32px 319px 1fr;
+  // grid-template-columns: 1fr 470px 32px 319px 1fr;
+  grid-template-columns: 1fr 470px 32px 360px 1fr;
   grid-template-rows: 95px 1fr;
 
   .feed {

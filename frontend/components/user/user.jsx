@@ -4,10 +4,11 @@ import { EditPicContainer } from "./edit_pic_container";
 export class User extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { userId: null, createPost: false }
+    this.state = { userId: null, createPost: false}
   }
 
   componentDidMount() {
+    console.log('in component did mount')
     this.props.fetchUserProfile(this.props.location.pathname.replace("/users/", "")).then(
       data => {
         let ids = Object.keys(data.users);
@@ -15,7 +16,6 @@ export class User extends React.Component {
           let otherUserId = ids.find(value => parseInt(value) !== this.props.current_user_id)
           this.setState({ userId: otherUserId});
         }
-
       }
       ,
       error => this.props.history.push('/')
