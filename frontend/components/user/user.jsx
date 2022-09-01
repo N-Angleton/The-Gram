@@ -8,7 +8,6 @@ export class User extends React.Component {
   }
 
   componentDidMount() {
-    console.log('in component did mount')
     this.props.fetchUserProfile(this.props.location.pathname.replace("/users/", "")).then(
       data => {
         let ids = Object.keys(data.users);
