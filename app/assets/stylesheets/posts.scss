@@ -98,6 +98,7 @@
   border: none;
   position: absolute;
   top: 16px;
+  cursor: pointer;
 }
 
 .currentUserPhoto {
@@ -244,7 +245,7 @@ a {
 }
 
 .followInterface {
-  display: flex;
+  display: inline-flex;
 }
 
 .posterName {
