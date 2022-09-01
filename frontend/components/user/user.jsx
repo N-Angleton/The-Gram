@@ -13,7 +13,7 @@ export class User extends React.Component {
       data => {
         let ids = Object.keys(data.users);
         if (ids.length === 1) { this.setState({ userId: this.props.current_user_id})} else {
-          let otherUserId = ids.find(value => parseInt(value) !== this.props.current_user_id)
+          let otherUserId = ids.find(value => this.props.users[value].username === this.props.location.pathname.replace("/users/", ""))
           this.setState({ userId: otherUserId});
         }
       }
