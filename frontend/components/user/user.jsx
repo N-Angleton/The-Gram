@@ -105,17 +105,20 @@ export class User extends React.Component {
                 </button>
               )
               }
-              <div className="profileNumbersContainer">
+                { this.props.follows[this.state.userId] ? (
+                <div className="profileNumbersContainer">
+
                 {Object.keys(this.props.posts).length > 1 || Object.keys(this.props.posts).length === 0 ? (<p className="profileNumbers"><em>{Object.keys(this.props.posts).length}</em> posts</p>) :(
                   <p className="profileNumbers"><em>1</em> post</p>
                 )}
                 {this.props.follows[this.state.userId].approved_followers.length > 1 || this.props.follows[this.state.userId].approved_followers.length === 0 ? (<p className="profileNumbers"><em>{this.props.follows[this.state.userId].approved_followers.length}</em> followers</p>) :(
                   <p className="profileNumbers"><em>1</em> follower</p>
                 )}
-                {this.props.follows[this.state.userId].approved_follows.length >= 0 ? (<p className="profileNumbers"><em>{this.props.follows[this.state.userId].approved_follows.length}</em> followers</p>) :(
-                  <p className="profileNumbers"><em></em> follows</p>
+                {this.props.follows[this.state.userId].approved_follows.length >= 0 ? (<p className="profileNumbers"><em>{this.props.follows[this.state.userId].approved_follows.length}</em> following</p>) :(
+                  <p className="profileNumbers"><em></em> following</p>
+                )} </div>) : (
+                  <></>
                 )}
-              </div>
               <h2 className="profileFullname">{user.full_name}</h2>
             </div>
           </div>
