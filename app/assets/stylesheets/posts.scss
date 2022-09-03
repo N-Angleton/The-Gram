@@ -229,9 +229,7 @@ a {
 }
 
 .myLinks {
-  display: block;
-  // width: fit-content;
-  // margin: 0 auto;
+  display: flex;
 }
 
 .myInfo {
@@ -245,10 +243,33 @@ a {
   color: $light-blue;
   margin-left: 8px;
   margin-right: 8px;
+  transition-timing-function: ease-in-out;
+  transition-property: color;
+  transition-duration: 0.2s;
 }
 
 .myIcon:hover {
   color: $dark-blue;
+}
+
+.angletonLink {
+  margin: 0 auto;
+  padding: 0;
+  font-size: 20px;
+  font-family: "FellEnglish";
+  color: $gray-bg;
+  background-color: $light-blue;
+  padding-left: 4px;
+  padding-right: 4px;
+  margin-left: 8px;
+  margin-right: 8px;
+  transition-timing-function: ease-in-out;
+  transition-property: background-color;
+  transition-duration: 0.2s;
+}
+
+.angletonLink:hover {
+  background-color: $dark-blue;
 }
 
 .followInterface {

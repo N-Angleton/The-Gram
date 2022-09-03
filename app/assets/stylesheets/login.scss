@@ -261,15 +261,48 @@ button.showHideButton {
   transition-timing-function: ease-in-out;
   transition-property: color;
   transition-duration: 0.2s;
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
+.angletonIcon-outer {
+  display: inline-block;
+  margin: 0 auto;
+  padding: 0;
+  width: 45px;
+  height: 45px;
+  background-color: $light-blue;
+  transition-timing-function: ease-in-out;
+  transition-property: background-color;
+  transition-duration: 0.2s;
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
+.angletonIcon-inner {
+  margin: 0 auto;
+  padding: 0;
+
+  font-size: 44px;
+  color: $gray-bg;
+  background-color: transparent;
+  font-family: "FellEnglish";
+  pointer-events: none;
 }
 
 .footerIcon:hover {
   color: $dark-blue;
 }
 
+.angletonIcon-outer:hover {
+  background-color: $dark-blue;
+}
+
 .footer {
   text-align: center;
   vertical-align: text-top;
+  margin: 0 auto;
+  display: flex;
 }
 
 a:visited {
