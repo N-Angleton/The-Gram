@@ -7,7 +7,7 @@ export const MyLinks = () => (
   <div className="myInfo">
     <p>Created by Nicholas Angleton</p>
     <div className="myLinks">
-      <a href="https://github.com/N-Angleton" target="_blank">
+      <a href="https://github.com/N-Angleton/The-Gram" target="_blank">
         <FontAwesomeIcon className="myIcon" icon={faGithub} />
       </a>
       <a href="https://www.linkedin.com/in/nhangleton/" target="_blank">

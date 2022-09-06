@@ -5,7 +5,7 @@ import { faEnvelope } from "@fortawesome/free-solid-svg-icons";
 
 export const Footer = () => (
   <div className="footer">
-    <a href="https://github.com/N-Angleton" target="_blank">
+    <a href="https://github.com/N-Angleton/The-Gram" target="_blank">
       <FontAwesomeIcon className="footerIcon" icon={faGithub} />
     </a>
     <a href="https://www.linkedin.com/in/nhangleton/" target="_blank">
