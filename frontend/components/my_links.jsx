@@ -19,7 +19,7 @@ export const MyLinks = () => (
       <a href="https://angel.co/nicholas-angleton" target="_blank">
         <FontAwesomeIcon className="myIcon" icon={faAngellist} />
       </a>
-      <a href="http://angleton.io/" className="angletonLink" target="_blank">A</a>
+      <a href="https://angleton.io/" className="angletonLink" target="_blank">A</a>
     </div>
   </div>
   

@@ -17,6 +17,6 @@ export const Footer = () => (
     <a href="https://angel.co/nicholas-angleton" target="_blank">
       <FontAwesomeIcon className="footerIcon" icon={faAngellist} />
     </a>
-    <a href="http://angleton.io/" target="_blank"><div className="angletonIcon-outer"><span className="angletonIcon-inner">A</span></div></a>
+    <a href="https://angleton.io/" target="_blank"><div className="angletonIcon-outer"><span className="angletonIcon-inner">A</span></div></a>
   </div>
 );
