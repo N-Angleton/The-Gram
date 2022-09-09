@@ -45,7 +45,9 @@ Users are able to follow and unfollow other users. The users they are following 
 ### Posts, Likes, & Comments
 
 <p align="center">
-  <img src="https://user-images.githubusercontent.com/98524285/187921159-ef9aadc7-c4ff-4d97-8e94-d67f00f137bb.gif" alt="Posts, Likes, & Comments GIF">
+  <img src="https://user-images.githubusercontent.com/98524285/189395788-af89fc22-f456-4f17-a72c-af76553fd268.gif" alt="Posts, Likes, & Comments GIF">
 </p>
 
 Users are able to create and like posts, as well as comment on posts.
+
+
